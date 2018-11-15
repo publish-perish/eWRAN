@@ -1,0 +1,542 @@
+\documentclass[10pt]{article}
+
+\usepackage[text={6in,8.1in},centering]{geometry}
+\usepackage{enumerate}
+\usepackage{amsmath,amsthm,amssymb}
+\usepackage{mathrsfs} % to use mathscr fonts
+
+\newcommand{\mcL}{\mathcal{L}}
+\newcommand{\mcI}{\mathcal{I}}
+\newcommand{\mcM}{\mathcal{M}}
+\newcommand{\mcP}{\mathcal{P}}
+\newcommand{\mcX}{\mathcal{X}}
+\newcommand{\mcC}{\mathcal{C}}
+\newcommand{\mcS}{\mathcal{S}}
+\newcommand{\mcD}{\mathcal{D}}
+\DeclareMathOperator*{\argmax}{arg\,max}
+\DeclareMathOperator*{\argmin}{arg\,min}
+
+\newenvironment{block}{\begin{adjustwidth}{1.5cm}{1.5cm}\noindent}{\end{adjustwidth}}
+
+\newtheorem{proposition}{Proposition}[section]
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}{Lemma}[section]
+\newtheorem{corollary}{Corollary}[section]
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}[section]
+
+
+\begin{document}
+
+\section{Introduction}
+In this work, we focus on vulnerabilites to denial-of-service (DoS) threats in
+a hostile network environment. We examine a worst-case scenario, maximizing the
+exploitation of uncertainties inherent in the use of a spectrum sensing interval.
+Our focus is on the behavior of the cognitive radio (CR) as used in customer
+premises equipment (CPE), their behavior during the coexistence window, and
+their use of the coexistence beacon protocol. According to the 802.22 draft, the
+self-coexistence quiet periods are used for the specific purpose to detect
+overlapping WRANs. The self-coexistence quiet periods are designed to support
+dynamic resource sharing between the overlapping base stations (BSs), targeting
+fair and efficient scheduling. We build our formulation on the specific case where the BS cells must
+resort to adaptive on demand channel allocation. We provide an alternative
+iteration of the process so that determines channels that can be acquired to satisfy the
+QoS requirements of the given workloads. We determine that intra-channel sharing
+is optimized by the cooperation, and the resulting inter-system demand alliviates the channel contention processes
+with coexisting WRAN. In this work, we assume frame-by-frame contention, and
+propose a naturally evolving organizational scheme that provides efficient and fair spectrum access of
+available channels, and utilizes the cognitive interaction between secondary
+users to detect, and precict, the presence of adversarial CR nodes.
+
+
+The goal of our design is to ensure that the network may be safely used by 
+formulating a CRN (WRAN) of cooperating base stations (BS) and supporting CPE.
+Towards this goal, we develop a hybrid WRAN where cooperative games are played 
+heirarchically, where depending on the player type and environment, the game 
+is played in a centralized or decentralized structure.
+We focus on three main issues in WRAN planning: (1) Spectrum allocation. A
+network at equilibrium should maximize the throughput of the CRN through
+intelligent use of base stations, (2) Quality of service (QoS). We consider QoS
+to be a guarantee of a minimum rate of service while adhering to a priority
+protocol. (3) Truthfulness in spectrum priority claims. 
+
+We address a scenario where the standards assumed by the IEEE 802.22 draft for
+wireless regional access networks (WRAN) are not supported. Namely, incomplete
+provider (PU) data. This
+scenario, as an example, could occur as a result of incomplete or corrupted
+infrastructure. Further, we model the presence of a
+powerful adversary and investigate WRAN operations in the worst case, where the
+adversary has fully infiltrated the primary user's (PU) broadcast
+spectrum. We propose a heirarchical game theoretic structure for resource allocation 
+and investigate the ability of the WRAN to protect itself
+and its cognitive nodes (CRs) from attack. We show that we are able to uphold
+the desired property of self-coexistence, and provide a game-theoretic framework
+and defense strategy to maintain network coherence with the desired QoS
+converging to a dynamic, stable equilibrium. Finally, we present a Stackelberg
+game and estimate the stability of our mechanism under duress.
+
+CR nodes are advancing technologically (Huawei), and will have the
+(communications) resources to collaborate on the allocation of spectra in
+addition to determining open channels. 
+As network use in sparse areas becomes more widespread, it is likely that a central dispatcher will not be able
+to provide the desired QoS across the distributed CRN. The network at large will
+remain sparse, which is a grand opportunity for malicious entities to target an
+area and infiltrate the network without detection by a central policing agency.
+Previous works have all focused on the protection of the PU. In our formulation,
+we examine the interactions between the eCRs as a distributed network of
+low-level, intelligent nodes.
+
+\section{Related Work}
+
+A branch-and-bound (B/\&B) algorithm for IEEE 802.22-based LTE networks has been
+developed in a queue-based control (QBC), where resource allocation is
+controlled by the queue size of nodes following their packet arrival
+probabilities. They achieve optimal power and resource block assignment for each
+mobile user, trading execution time and end-to-end packet delay. (CITE) 
+
+Sakin and Razzaque solve the issue of self-coexistence as a large MIP problem,
+which is known to be NP-hard, and several other approximations taking the
+approach of nonlinear optimization (CITE).
+
+With the 802.22 draft and the advent of orthogonal frequency modulation (OFM),
+higher level algorithms began to form making use of the network capabilities.
+Sengupta and Brahma (CITE) addressed the issues of efficiency and utilization
+using a graph-theoretical approach. 
+
+
+\section{The Model}
+
+\subsection{The Evolutionary Game}
+
+Before we arrive at the Stackelberg game, we make use of the flexibility of the
+CRN to form a network topology based on the interconnectedness and resulting
+strategies of the eCRs. In order to clarify our model, we use the CRN 
+self-coexistence window as an update window to
+a type of central limit order book (CLOB), which is owned and updated by the BS. 
+The CLOBs contain the contended frames available during the self-coexistence window 
+of each BS, and are shared among the BS via the eCRs within overlapping
+areas. We form a cooperative game where the eCRs are responsible for forming queues in order
+to optimize frame utilization of in the case where multiple BS must exist on the
+same channel, defined in the 802.22 standard draft as on demand frame
+contention. Our intention is to construct a
+Baskett-Chandy-Muntz-Palacios (BCMP) network at equilibrium, where the eCRs form
+queues to wait for frames from a single, or multiple BS. This BCMP network will simplify the spectrum allocation
+with priority
+problem for the BS, and alleviate contention in the self-coexistence window.
+Each queue represents a different priority level, although players are allowed to choose any queue.
+The supermarket game is relevant in scenarios where (1) the players choose which
+queue to join without directions from a central dispatcher; (2) global workload or
+queue length information is not available and customers randomly choose a finite
+number of queues based on knowledge from their nearest neighbors; (3) there is a cost
+associated with finding and then waiting in queues.
+
+We have a set of CRN, each containing a set of FIFO queues. 
+The queues formed at BSs that overlap, particularly within the overlapping areas 
+of the individual CRN, may provide intelligence useful in enforcing
+security. The 802.22 IEEE draft makes use of overlapping regions via the
+contention beacon protocol. As in (CITE), we may assume that the BS randomly
+selects CLUSTER head for each queue, who may aggragate or transmit data with
+the BS and the other eCRs. Thus the importance of trust among queue members;
+queues are natural targets for an adversary. 
+The eCRs participate in a selection scheme that
+encourages protected communities that practice proportional fairness. The queues
+are self-organizing and
+self-enforcing, as fitness is determined by the players,  players may apply peer
+pressure to abide by regulations by affecting queue fitness.
+
+The strategies of the eCRs, within a BCMP framework, allow us to complete the
+metric on the space of cadlag functions restricted to $\mcL \in \mathbb{Z}^+$.
+We represent the bijection $\mcL \rightarrow \mathbb{Z}^{n+}$ as the exterior of
+the stationary set (probability distribution, but which one? density?) of the eCR strategies.
+$n$-sphere, and construct a \emph{suspension} of the $(n-1)$-sphere representing
+the boundary of a $(n+1)$-dimensional ball embedded in the equilibrium state of
+the network. 
+In order to construct a viable model for our 
+final goal, we must have (1) self-configuration, and (2) automatic neighbor relations. 
+We address our CRs as a finite set of
+actions, and formalize the game play as sphere-of-influence (SIG)(CITE) graph.
+To begin, we propose a set of mixed
+strategies defined by a probability distribution over
+the finite set of feasible strategies, and define a 
+supermarket game played by the eCRs.
+
+\subsubsection{The Supermarket Game}
+
+Consider a single CRN containing $M$ heterogenous FIFO queues with unit exponential service rate and global
+Poisson arrival rate $\lambda$. A CR completing a transmission at queue $i$ will either 
+move to some new queue $j$ with (fixed) probability $P_{ij}$ or leave the system 
+with probability $\displaystyle 1-\sum _{j=1}^{m}P_{ij}$, which is non-zero for some subset of the queues. 
+In order to arrive at an advanced decision model, we first address three main ways to describe the choice $L_i$, which serves to characterize the
+supermarket game as a dynamic interaction of intelligent players: (1) Choice structure,
+(2) Preference maximization, and (3) Utility maximization.
+Player $i$'s choice of $L_i$ queues forms a preferred set, the interactions between the eCRs in forming their
+preferred set of queues, and the interactions between eCRs belonging to a specific
+queue form a decision profile.We define each queue of of eCRs as a coalition within the CRN network including one or more
+BS, where the decision is based on the expected probabilty distribution of
+mixed strategies the eCRs.
+
+Once a queue has been chosen, queue members jointly
+compute a fitness metric which determines the internal valuation of the queue,
+and is a factor in the queue's utility for all players. The fitness metric estimates how much
+confidence the members of the queue have in each other. For each new member,
+the residing eCRs in each queue asses the trustworthiness of the new member, after which the BS
+updates its trust value including the new member. The more trustworthy the group
+the better the overall fitness. A queue cannot refuse a new member, however, we
+consider that any queue member can submit a participation request to the BS. In the case
+that a new eCR causes the queue's fitness to drop below some threshold, a queue
+member may choose to request that the BS participate in the fitness computation
+before switching queues. 
+Players joining the game choose a number of
+queues to be sampled uniformly at random and joins the least loaded sampled
+queue with respect to their valuation. Players are assumed to have a cost for both waiting and sampling, and they
+want to minimize their own expected total cost. As in (CITE), we assume a unit exponential service rate of frames.
+
+Denote a function $L_i(\cdot)$ from $[0, c_{MAX}]$ to
+$\mcL$ as the strategy of player $i$. Following
+standard game theoretic notation, all other players choose $L_{-i}$.
+Further, let $\mcL = \lbrace 1,\cdots,L\rbrace$ be the set of
+queues provided in the BS superframe. The expected total cost of player $i$ playing 
+strategy $L_i$, with all other strategies fixed, is given by, 
+$$
+    C(L_i,L_{-i}) = c\mathbb{E}\lbrack W(L_i,L_{-i})\rbrack + \hat c L_i,
+$$
+where $\mathbb{E}\lbrack W(L_i,L_{-i})\rbrack$ is the
+expected wait time, $c$ is the cost per unit waiting time, and $\hat c$ is the
+(fixed) cost of sampling one queue. Note that if $s_1, s_2 \in \mcS$, with $s_1
+<_{st} s_2$, then for all $L\in\mcL$, $\mathbb{E}[W(L,s_1)] >
+\mathbb{E}[W(L,s_2)]$.
+We have
+that $\mcP(\mcL)$ is the set of all probability distributions over $\mcL$. The mixed
+strategy $s_i(L_i) \in \mcS=\mcP(\mcL)$ is the probability that
+eCR $i$ samples $L_i(\cdot)$ queues, 
+the expected total cost for playing strategy $s_i$ is given by,
+$$
+    C(s_i, s_{-i}) = \displaystyle \sum_{L_i \in s_i} C(L_i,s_{-i})s(L_i).
+$$
+
+Adopting the mean field theorem from Xu and Hajek (CITE), we consider
+the fitness of a queue using a rank-dependent utility model for
+the expected fitness. Define the strategy set formed by $n$ eCRs waiting in queue $k$,
+$Q_k = \lbrace L_1 \le L_2 \le\cdots \le L_n\rbrace \subset \mcL$.
+Following the assuption that the eCRs will choose a strategy $L_i$
+based on a potential distribution of losses or gains, the fitness function of
+queue $k$ satisfies
+$$
+    W(Q_k) = \displaystyle\sum_{L_i\in Q_k} \pi_i u(L_i),
+$$ 
+where $\pi_i\in[0,1]$,
+$u:\mcL \rightarrow\mathbb{R}$, and $\pi_i$ is a probability weight such
+that $\sum_{j \in L_i}\pi_j = 1$. We assume monotonicity.
+Restricting the sample space $\mcL\subset\mathbb{Z}^+$, suppose $\mcL_i(\cdot)\in \mcS$ is a given
+non-decreasing step-function where the cost $L_i(c)$ is such that $c_1\le \cdots \le c_n$, and so $L_i(c) = l$ for $c_{l-1}\le c \le c_l$. 
+Define a metric $d(L_1(\cdot), L_2(\cdot)) \equiv \vert\vert s_{L_1} -
+s_{L_2}\vert\vert$. 
+
+Denote the metric space of the mean field model as $\mcX$ such that $\mcL \subset \mcX$.
+Now, let $\mcP(\mcL)$ denote the set of all probability distributions
+over $\mcL$, and define a subset $S_i$ in $\mcP(\mcL)$ and a metric $\rho$.
+There exists a bijection from $\mcL$ to $\mcP(\mcL)$.
+The mean field equation describes a separable and complete metric space
+$(\mcL, \mathbb{N}, \mcD)$, where $\mcD$ is the space of right-continuous,
+left-limited functions (cadlag). Define,
+$$
+    r_i = \min\lbrace \rho(X_i, X_j) : j\ne i\rbrace, \qquad (i = 1, \cdots n)
+$$
+where $r_i$ denotes the minimum distance between $X_i$ and any other point in
+$\mcX$. The open ball
+$$
+    B_i \lbrace X \in \mcX : \rho(X_i, X) < r_i\rbrace, \qquad (1 = 1, \cdots n)
+$$
+is the sphere of influence at $X_i$.
+
+The mixed strategy vector $[s]$ forms a partition
+function determined by the probabilities on $\mcS$. 
+We define the priority of an eCR to be the energy function, where the
+time-constrained players are more energetic than the cherry-picking types, as
+they have a higher incentive to sample more queues.
+The vector $[s] = [s_1, \cdots, s_N] \in \mcS\times\mcS$ is given by,
+$$
+    P_{s_i \in [s]} = \frac{1}{Z} e^{-\pi s},
+$$
+Restricting the sample space $\mcL\subset\mathbb{Z}^+$,
+this is the length of the shortest queue.
+
+
+For any pair interaction, 
+$u_1 \le_{st} u_2$, indicate that $u_i$ is first-order stochastically
+dominated by $u_j$, with respect to the norm. 
+Now, fixing $t_0$, consider an initialization state, where no queues have been
+sampled. We assume that queue fitness is i.i.d, as there
+have been no pair interactions. 
+Let $i$ be a queue containing $n$ eCRs. The $n$-dimensional sphere $S^n$
+of radius $r$ in $(n+1)$-dimensional Euclidean space $\bf{E}^{n+1}$, the
+Riemann metric induced by $\bf{E}^{n+1}$ is given by,
+$$
+    g = \frac{4r^4(d\phi^2 + d\psi^2)}{(r^2 + \phi^2 + \psi^2)^2}.
+$$
+
+Fix $s_i(\cdot) \in \mcL$, and suppose all other players use mixed strategy
+$s_{-i}(\cdot)$, the expected fitness of queue $k$, 
+$$
+   C(s_i, s_{-i}) = c\displaystyle\sum_{[s]_i} G(L_i, s_{-i}) + \hat c L_i,
+$$
+where $G(L,s)\mapsto \mathbb{R}$ is a stereographic projection of the
+exterior and interior of the manifold $\mcS(\mcL)$. We define the cost of an eCR
+joining a queue as a direct sum *****
+
+{\lemma{The Enveloping Algebra}\\
+Let $\alpha_1, \alpha_2$ be random measures on the $\sigma$-algebra of the
+Poisson arrival process.
+There exists an arrangement $u_1<u_2<\cdots u_N$ of priorities in a queue if
+and only if there exists a function $\phi$ such that $\phi(\alpha_1) =
+u((-\infty,\alpha_k]), \ k = 1,2,\cdots, N$ and $\phi(\alpha_1) <
+\phi(\alpha_2) < \cdots < \phi(\alpha_N)$.
+}\\
+\textbf{Proof:} OUTLINE : (1) $\alpha_k$ is the CDF of 
+Thus, we define $\mcM$ and and $\mcP$ to be the measures and probability measures,
+respectively, on the solution space.
+
+
+TODO: 
+1. show gradient in each sphere from type distribution,
+2. parameterize the hyperboloid
+- use tangent space
+3. complete the exterior, must be convex
+4. define the incidents on the SIG
+
+We consider the division of contended frames during the contention beacon
+protocol. In this priority FIFO scheme, each eCR will
+choose the queue with the best priority match. Following the lead of Lal
+and Rao (1997), we define two types of eCR nodes: cherry pickers and
+time-constrained. Cherry pickers are known to have a lower opportunity cost, and
+prefer to maximize their utility in terms of sustainable bandwidth. 
+Time-constrained players make up the majority, attributing a higher weight to
+the cost of selecting a queue. Letting one player type act as a sink, while the other
+is a source, we construct a gradient,
+$$
+    e
+$$
+{\lemma{The Hyperbolic Interior}\\ 
+Let $s_1 <_{st} s_2 \in \mcS\times \mcS$ be mixed strategies.
+There exists a transform $\gamma: [0,1] \rightarrow [0,1]$ such that 
+$$
+\gamma\bigg( \displaystyle\sum_{n \in \vert \mcL\vert} \pi_n\bigg ) =
+\gamma(\omega) + \gamma(1-\omega) = 1,
+$$
+where $\omega$ is the percentage of eCRs of the cherry-picking type.
+}\\
+\textbf{Proof:} NEED OUTLINE
+We construct $g(L,s)$ as follows: 
+1. projection onto big sphere (exp)
+2. limits being the map projection onto (sphere, hyperboloid)
+
+We **** determined by a holomorphic function.\\
+Then, defining  ********** the equilibrium state probabilities are given by
+$$
+    \displaystyle \pi (x_{1},x_{2},\ldots ,x_{m}) = \kappa \pi_{1}(x_{1}) \pi _{2}(x_{2})\cdots \pi_{m}(x_{m}),
+$$
+where $\kappa$ is a normalizing constant, and $\pi_i(\cdot)$ represent the
+equilibrium distribution for queue $i$. Thus, the CRN may be represented by a
+BCNP network, where
+$$
+    {\displaystyle \scriptstyle {\pi _{i}(\cdot )}} {\displaystyle \scriptstyle {\pi _{i}(\cdot )}}
+$$
+represents the equilibrium distribution for queue $i$.
+
+
+
+\subsection{Enhanced Cognitive Structure}
+The ability of the CRN to reconfigure based on cognition of the environment
+motivates us to construct our model as a study of momentum in a network between eCRs. 
+We can think of this quantity as a measurement of flux passing through the
+boundary of the ball $B_i$, although it is a positive quantity, the exterior of
+the ball is a field with the same measure, and so although the field may have
+velocity, there is no motivating factor as equilibrium is achieved at stasis.
+Now define, for a player $i$, a function
+$\alpha_t(\mcS) \longrightarrow S_i$ as the queues in $\mcS$ in the
+complex field that are connected to player $i$ at time $t$. 
+Thus we model the pair interaction, and define the the player's initial utility
+function as a hyberbolic absolute risk aversion (HARA), and so must adhere to,
+for utility $u$,
+$$
+    \displaystyle\frac{u''(C(L_i,L_{-i}))}{u'(C(L_i,L_{-i}))}.
+$$
+The initial utility for two eCRs is dependent on their type; cherry-pickers
+(eCR$_{\omega}$), who
+avoid the risk of oversampling, and time constrained eCRs, will try to
+find the shortest queue, with higher costs (eCR$_{1-\omega}$).
+For any player $i$, we take the cost of the wait time to be a nondegenerate
+continuous probability density function as $\int_0^{c_{MAX}} f(c) \  dc = 1$, 
+where $f$ is any cadlag function.
+We begin by examining the interactions between eCRs, the game begins without any
+player holding any bias towards any other player, as no queues have been
+sampled and no pair interactions have occured. The utility of the players 
+is function of service time, we assume an exponential utility:
+$$
+    u(\alpha) = 1 - e^{-\gamma \alpha},
+$$
+where $\alpha$ is the \emph{externality} associated with the on the trustworthiness of the
+participating players, or in other words, $\alpha$ is an indication of the
+efficiency of the queue when considering only the overhead incurred by pair
+communications within a queue. Define the total
+variational norm, where $f$ is any cadlag function,
+$$
+    \vert\vert u\vert\vert_{TV} = \sup\lbrace \int f \ du : \vert\vert
+    f\vert\vert_\infty \le 1 \rbrace.
+$$
+
+\subsubsection{Sphere of Influence Graph (SIG)}
+ We define the sphere of influence graph
+(SIG) as a vertex set $\mcX$ and edge set 
+$$
+\lbrace\lbrack X_i, X_j\rbrack : B_i \cap B_j \ne 0, i\ne j\rbrace.
+$$
+As SIG is i\emph{simultaneously} a proximity graph and an intersection graph, we
+may look for its closure in order to complete our construction. The closed SIG
+graph forms a complete topology with respect to the preference of its central
+eCR, within which we may make behavioral predictions. We define the SIG for an
+eCR $i$, $SIG_i$ to be a set of vertices surrounding $i$, where another vertex
+$j\in SIG_i$ probability of intersection is nonzero if and only if its core
+$C_j$, is a subset of $SIG_i$ ((CHECK!). An intersection is defined to
+be an interaction between the two eCRs (vertices) within a queue (CHECK!).
+
+We may view the strategy space of eCR $i$ as a pair $(\mcL, \mathbb{P}(\mcS))$
+associating probabilty with a graded manifold. We define a motivating operator $\phi$ to be a
+function of the probability current. Define $\varepsilon^*$ to be the complex
+conjugate of the potential energy of the player in stasis, $\varepsilon$.
+That is, the
+collection of balls $\mathbb{B}_{i=1\cdots n}$ who share an edge set at time $t$.
+$$
+\vert \mu_i \vert \ge \mu_k \ \forall \ s_i \in S_i, s_k \in \mcP(\mcL).
+$$
+Each ball represents a distribution of possible strategies, and as subset of the
+measure space, we are able to compute its density function. Now, we provide a
+formal characterization of the eCR as defined by its player type. Consider a
+player $i$ with associated ball $B_i$ and graph $SIG_i$. Also consider that the ball $B_i$ has nonzero flux
+at the boundery, and so $i$ is at the same time in an uncertain state. The
+density matrix used here is defined to be the statistical state of a system in
+quantum mechanics, and is particularly useful in dealing with mixed states. Define the measure $\rho$ on our player's strategy space as
+$$
+\rho = \displaystyle\sum p_i\vert\kappa_i\rangle\langle\kappa_i\vert
+$$
+where $\vert\kappa_i\rangle\langle\kappa_i\vert$ is the outer product. Now,
+equipped with a proper embedding in the surrounding
+dynamical complex field, player $i$'s type may be represented by a statistical
+ensemble (mixed type), with probability $p_i$ that the system is in the pure
+state $\vert \kappa$. We begin a tesselation process on $SIG_i$, a collection of
+mobius triangles which are oriented perpendicular to the direction of flux, and
+define a map projection $\varphi(SIG(B_I))$ as,
+
+We claim that there exists an additional, induced metric, on the
+SIG. The the closed sphere of influence graph $SIG_i$ is defined by the intersections of the closed balls
+$$
+\overline{B}_i= \lbrace X \in \mcX : \rho(X_i, X) \le r_i\rbrace.
+$$
+We define the closed graph $\overline{SIG_i}$ 
+
+Let $\Lambda$ define the class of strictly increasing continuous mappings of
+$[0,1]$ that are self-onto, i.e. self-coherent. For any $\lambda \in \Lambda$,
+define the unit exponential function to be a mapping from the space of
+continuous probabilty under uncertainty to the discrete possible space. Thus, we
+define the metric, 
+$$
+\vert \lambda \vert = \sup \limits_{u\rightarrow s}\frac{\lambda\rightarrow u}{s}.
+$$
+The resulting topology is invariant under discrete possibility, and allows for
+the weak convergence of our cadlag functor. Consider the infintesimal interval, 
+$$
+dS^2 = c^2 - dV^2,
+$$
+of strategies.
+
+TODO:
+\begin{enumerate}
+\item Create hyperbola in Minkowski space
+\item Linearize node types using retraction (almost homogenous) using Lorentz
+time-invariance 
+\item Partition function to the product space
+\item Start with identical particles (blank slate)
+\item Define progression of belief (use the alleles?)
+\item Mutate to generate attacks with fixed binomial dist (of attack type)
+\end{enumerate}
+
+
+CLAIM: We now show that the process cycle of the eCR adhers to the evolutionary
+model.
+\begin{itemize}
+\item The manifold of the eCRs network is factorially bounded above by its
+most exterior exponent, i.e. there exists a calibration on $\mcX$,
+$$
+\frac{\omega^k}{k!},
+$$    
+and therfore, the topology of the sublayer of the CRN is a simplectic
+manifold $(\mcX,\omega)$. 
+\item The eCRs are type invariant.
+\item The exterior is continuous on the field.
+\end{itemize}
+
+
+The mobius triangles are subject to a piecewise skew transform, and
+define a mapping function. We may assume that the the decision framework of
+the eCRs is a skew function with respect to the flux conditions on the boundary
+of
+the surrounding field. 
+{
+\lemma{Existence and Contraction of a Kahler Manifold/ Mean Field Chaoticity}
+}
+\textbf{Proof:}
+The fully connected and closed queueing system is fully
+embedded in the frequency space. The emedding, along with the uncertainty
+overlay allows us to formally represent the heterogenous eCRs. 
+We will show that the decoupling of a distributed competitive game 
+and the resulting niche market, a deformation of the space as the distribution
+of density in the SIG manifold tends towards the central limit. Consider the
+connected map generated on the skew plane, the flow of the phase space will
+is diverted by the skew force, and may not lie on the outer hull, breaking
+its convexity and introducing a nonlinear component to the smooth hull as
+the tensor flow interacts with the surrounding field.
+(FINISH)
+\emph{Corollary:}
+Every complex submanifold of a Kahler mainfold is volume minimizing in its
+homology class.
+
+TODO:
+1. model the flux as the magnetic
+component of the phase induced by the boundary potential (will be a plane)
+
+
+Let $\mu_i \in \mcP(\mcL)$ to be the mixed strategy
+of player $i$, in other words, $\mu(L_i)$ is the probablility that player $i$
+chooses $\langle L_k \rangle_{k\in S_i}$ queues. Let player $i$ be a time-constrained player, and fix all player strategies.
+
+Then, the mean field equations for the equilibrium distribution is given by,
+$$
+C(L_i, L_{-i} = c\mathbb{E}\big\lbrack W(L_i(c),L_{-i})\big\rbrack + c_s L_i(c).
+$$
+The player wishes to minimize thier expected total cost by finding the optimal $L_i(\cdot)$. 
+
+\section{Survivability}
+
+In this section, we focus on vulnerabilites to denial-of-service (DoS) threats in the hostile network environment due to the uncertainties in the licensed user detection made during the spectrum sensing interval.
+Our model assumes the existence of a hostile network environment, defined by the
+presence our threat models, consisting of two types of attack: explicit or
+implicit attacks. Explicit attacks include jamming, masking... Defense against
+an explicit attack requires that the network detect an adversary hiding in the
+PU spectrum. Implicit attacks are concerned with corruption of the decision
+making process of the eCR. 
+operating as an agent of the PU. As the adversary nodes are agents of the PU,
+they are assumed to have knowledge of the characteristics of the PU's signal in
+advance. The adverserial CPEs (ACPEs) therefore have an advantage as they do not
+need to approximate the PU signal for detection. The adversary nodes are
+classified according to their attacks and modeled as a Bayesian attack graph
+(BAG). Describing the CRN similarly, we allocate defensive attributes to the eCR network graph, effectively forming an integrated defense system (IDS). We then form a Stackelberg game and derive bounds on the stability/ survivablility of the CRN.
+W evaluate the performances of the IDS using the Positive Predictive Value (PPV), which is the probability that an alert raised by the IDS represents an actual intrusion. 
+We begin with an introduction to the Stackelberg game from a topological
+perspectiv game from a topological perspective, and show that a SOLUTION exists
+and is a solution to the heirarchical game.
+
+\subsection{The Stackelberg Topology}
+
+(EDIT)
+
+\end{document}
