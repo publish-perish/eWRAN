@@ -1,0 +1,232 @@
+
+
+We have the tangent line of the arrival process of eCRs sampling $L_i$ queues at price $c$
+$$
+    \lambda s_{-i}(L_i)(r_{L_i}(c-1) - r_{L_i}(c).
+$$
+Using the tangent lines, we begin a tesselation process on $SIG_i$, a collection of
+mobius triangles which are oriented perpendicular to the direction of flux, and
+define a map projection $\varphi(SIG(mathbb{B}(\cdot)))$ as a minimization of the Dirichlet energy, 
+$$
+	E[\mu]  = \frac{1}{2} \displaystyle\int_{\mcS}
+    \vert\vert\triangledown\mu(s)\vert
+    \vert^2 \ dV,
+$$
+
+
+{\lemma{The Enveloping Algebra}\\
+We extend the arrangement $s_1<s_2<\cdots s_N$ to the trihedral plane. Fix
+$s_{-i}\in \mcS$, and let the \emph{marginal value} of $L_i$ be,
+$$
+    V(L_i,s_{-i}) = 
+$$
+if and only if there exists a strategy vector $[s]$, and a function $\phi$ such
+that $\phi(s_i) =
+C((-\infty,s_i]), \ i = 1,2,\cdots, N$ and $\phi(s_1) <
+\phi(s_2) < \cdots < \phi(s_N)$. The union of these sets form an
+algebra $[\alpha s] \subset \mcS\times\mcS$.
+}\\
+\textbf{Proof:} 
+Let $c_1 < c_2 \cdots < c_n$ be the costs associated with eCRs $\brace 1,\cdots,
+n\rbrace$ in queue $k$. Fix time $t$ and let $\phi(\cdot)$ be defined as
+$\max_{s_i\in Q}$ The inverse $\frac{1}{c_i} \approx 
+\theta\mathbb{P(\mcS)}$.
+OUTLINE : (1) $\alpha_k$ is the CDF of 
+We have the $2$-sphere, TODO: collapse onto unit circle
+
+\subsection{Enhanced Cognitive Structure}
+
+The density matrix describing a mixed state is defined to be an operator of the form
+$\rho =\sum _{s}p_{s}|\psi _{s}\rangle \langle \psi _{s}|$
+where $p_{s}$ is the fraction of the ensemble in each pure
+state $|\psi _{s}\rangle$ .
+(this part needs the perceptron)
+The ability of the CRN to reconfigure based on cognition of the environment
+motivates us to construct our model as a study of momentum in a network between eCRs. 
+We can think of this quantity as a measurement of flux passing through the
+boundary of the ball $B_i$, although it is a positive quantity, the exterior of
+the ball is a field with the same measure, and so although the field may have
+velocity, there is no motivating factor as equilibrium is achieved at stasis.
+
+We begin by examining the interactions between eCRs; initially, no queues have been
+sampled and no pair interactions have occured.
+Thus we model the pair interaction, and define the the player's initial utility
+function as a hyberbolic absolute risk aversion (HARA), and so must adhere to,
+for utility $\mu$,
+$$
+    \displaystyle\frac{\mu''(C(L_i,L_{-i}))}{\mu'(C(L_i,L_{-i}))}.
+$$
+
+We claim that there exists an additional, induced metric, on the
+SIG. The the closed sphere of influence graph $SIG_i$ covers the intersections
+of the closed balls $\mathbb{B}$.
+$$
+    \overline{B}_i= \lbrace X \in \mcX : \rho(X_i, X) \le r_i\rbrace.
+$$
+
+
+Let $\mcC^n$ be the extended complex plane, and so we have (DO WE?)
+that $\mu(S_i, S_{-i}) \mapsto s_i^{-1}s_{-i}$ is a smooth mapping of the
+product manifold  $\mcS\times\mcS$ onto $\mcS$, g
+
+
+We define the closed graph $\overline{SIG_k}$ belonging to queue $k$.
+
+\subsubsection{Sphere of Influence Graph (SIG)}
+ We define the sphere of influence graph
+(SIG) as a vertex set $\mcX$ and edge set 
+$$
+    \lbrace\lbrack s_i, s_j\rbrack : B_i \cap B_j \ne 0, i\ne j\rbrace.
+$$
+A SIG is \emph{simultaneously} a proximity graph and an intersection graph. 
+We construct a map function and its closure in order to complete our
+construction. The closed SIG graph forms a complete topology with respect to the
+preference of its central eCR, 
+within which we may make behavioral predictions. We define the SIG for an
+eCR $i$, $SIG_i$ to be a set of vertices surrounding $i$, where another vertex
+$j\in SIG_i$ probability of intersection is nonzero if and only if its core
+$C_j$, is a subset of $SIG_i$ ((CHECK!). An intersection is defined to
+be an interaction between the two eCRs (vertices) within a queue (CHECK!).
+That is, the collection of balls who share an edge set at time $t$.
+$$
+    \mathbb{B} = \vert s_i \vert \le s_k \ \forall \ s_i \in S_i,
+    s_k \in \mcS.
+$$
+
+Each ball represents a distribution of possible strategies, and as subset of the
+measure space, we are able to compute its density function. 
+Define the density operator $\rho$ on $\mcS\times \mcS$ as
+$$
+    \rho = \displaystyle\sum p_i\vert s_{L_i}\rangle\langle s_{L_i}\vert
+$$
+where $\vert s_i\rangle\langle s_i\vert$ is the outer product. The expectation
+value of a state $[s]$ is given by $\langle [s] \rangle = \text{tr}{\rho [s]}$,
+
+
+Consider a player $i$ with associated ball $B_i$ and graph $SIG_i$. Also consider that the ball $B_i$ has nonzero flux
+at the boundery, and so $i$ is at the same time in an uncertain state. The
+density matrix used here is defined to be the statistical state of a system in
+quantum mechanics, and is particularly useful in dealing with mixed states.
+
+We have an immersion in the surrounding
+dynamical complex field $\mathbb{C}^2$. The complex field encases the distributions of the
+player strategies; that is, the gradient of the distribution across the boundary
+determines the orientation of exterior.
+$$
+    \theta
+$$
+
+
+
+TODO:
+\begin{enumerate}
+\item Create hyperbola in Minkowski space
+\item Linearize node types using retraction (almost homogenous) using Lorentz
+time-invariance 
+\item Partition function to the product space
+\item Start with identical particles (blank slate)
+\item Define progression of belief (use the alleles?)
+\item Mutate to generate attacks with fixed binomial dist (of attack type)
+\end{enumerate}
+
+\subsection{Evolved CRN (eCRN)}
+CLAIM: We now show that the process cycle of the eCR adhers to the evolutionary
+model. (evolved CRN)
+\begin{itemize}
+\item The manifold of the eCRs network is factorially bounded above by its
+most exterior exponent, i.e. there exists a calibration on $\mcX$,
+$$
+\frac{\omega^k}{k!},
+$$    
+and therfore, the topology of the sublayer of the CRN is a simplectic
+manifold $(\mcX,\omega)$. 
+\item The eCRs are type invariant.
+\item The exterior is continuous on the field.
+\end{itemize}
+
+
+The mobius triangles are subject to a piecewise skew transform, and
+define a mapping function. We may assume that the the decision framework of
+the eCRs is a skew function with respect to the flux conditions on the boundary
+of
+the surrounding field. 
+{
+\lemma{Existence and Contraction of a Kahler Manifold/ Mean Field Chaoticity}
+}
+\textbf{Proof:}
+The fully connected and closed queueing system is fully
+embedded in the frequency space. The emedding, along with the uncertainty
+overlay allows us to formally represent the heterogenous eCRs. 
+We will show that the decoupling of a distributed competitive game 
+and the resulting niche market, a deformation of the space as the distribution
+of density in the SIG manifold tends towards the central limit. Consider the
+connected map generated on the skew plane, the flow of the phase space will
+is diverted by the skew force, and may not lie on the outer hull, breaking
+its convexity and introducing a nonlinear component to the smooth hull as
+the tensor flow interacts with the surrounding field.
+(FINISH)
+\emph{Corollary:}
+Every complex submanifold of a Kahler mainfold is volume minimizing in its
+homology class.
+
+TODO:
+1. model the flux as the magnetic
+component of the phase induced by the boundary potential (will be a plane)
+
+The resulting topology is invariant under discrete possibility, and allows for
+the weak convergence of our cadlag functor. Consider the infintesimal interval, 
+$$
+    dS^2 = dS_i^2 - dS_j^2,
+$$
+of strategies.
+
+\section{Survivability}
+
+In this section, we focus on vulnerabilites to denial-of-service (DoS) threats in the hostile network environment due to the uncertainties in the licensed user detection made during the spectrum sensing interval.
+Our model assumes the existence of a hostile network environment, defined by the
+presence our threat models, consisting of two types of attack: explicit or
+implicit attacks. Explicit attacks include jamming, masking... Defense against
+an explicit attack requires that the network detect an adversary hiding in the
+PU spectrum. Implicit attacks are concerned with corruption of the decision
+making process of the eCR. 
+operating as an agent of the PU. As the adversary nodes are agents of the PU,
+they are assumed to have knowledge of the characteristics of the PU's signal in
+advance. The adverserial CPEs (ACPEs) therefore have an advantage as they do not
+need to approximate the PU signal for detection. The adversary nodes are
+classified according to their attacks and modeled as a Bayesian attack graph
+(BAG). Describing the CRN similarly, we allocate defensive attributes to the eCR network graph, effectively forming an integrated defense system (IDS). We then form a Stackelberg game and derive bounds on the stability/ survivablility of the CRN.
+W evaluate the performances of the IDS using the Positive Predictive Value (PPV), which is the probability that an alert raised by the IDS represents an actual intrusion. 
+We begin with an introduction to the Stackelberg game from a topological
+perspectiv game from a topological perspective, and show that a SOLUTION exists
+and is a solution to the heirarchical game.
+
+In particular, the overlapping areas of the individual CRN will have 
+difficulty in enforcing security. 
+
+\subsection{The Stackelberg Topology}
+
+(EDIT)
+
+
+ $\gamma$ defines cherry-picking and
+time-constrained player types as separate distributions, and forms a partition
+of the space where mixed strategy vector 
+
+
+We determine the fitness function as the action of a pair interaction between
+players, following the replicator dynamics model for a haploid species. 
+Thus, the fitness of a player is determined by the result of pair interactions,
+and can be represented by the index $(i,j)^n$ in the
+resulting $2^n$ matrix. Consider,
+$$
+    \theta(L_i,L_{-i}) = \displaystyle\sum_{j\in\L_{-i}}
+    (1-L_i)(1-L_j)\theta)_{L_{-i}} + L_i L_j \theta_{i}.
+$$
+Let the private preferences of a player be defined by $\theta \in [0,1]^{L_i}$,
+$$
+    \theta(s_i, s_{-i}) = \displaystyle\sum_{L_i \in s_i} \theta_i(L_i, L_{-i})\theta_i.
+$$
+
+As our group is a matrix \emph{Lie} group, and also a finite-dimensional
+smooth manifold. 
+

@@ -1,0 +1,73 @@
+
+
+The volatility skew is the difference in implied volatility (IV) between out-of-the-money options, at-the-money options, and in-the-money options. Volatility skew, which is affected by sentiment and the supply and demand relationship, provides information on whether fund managers prefer to write calls or puts. It is also known as a "vertical skew."
+
+
+Let $u=\log_a(x)$, then $a^u = x$, so $y=\ln(x) \rightarrow e^y = x$.
+
+
+The jump-diffusion process was constructed to have ergodic properties so that after initially flowing away from its initial condition it would generate samples from the posterior probability model.
+
+
+Junctions: arrow and fork
+
+
+ Minkowski space is not endowed with a Euclidean geometry, and not with any of the generalized Riemannian geometries with intrinsic curvature, those exposed by the model spaces in hyperbolic geometry (negative curvature) and the geometry modeled by the sphere (positive curvature). The reason is the indefiniteness of the Minkowski metric. Minkowski space is, in particular, not a metric space and not a Riemannian manifold with a Riemannian metric. However, Minkowski space contains submanifolds endowed with a Riemannian metric yielding hyperbolic geometry.
+
+
+The Lorentz transformation: The simplest case is a boost in the x-direction (more general forms including arbitrary directions and rotations not listed here), which describes how spacetime coordinates change from one inertial frame using coordinates (x, y, z, t) to another (x′, y′, z′, t′) with relative velocity v:
+{\displaystyle t'=\gamma \left(t-{\frac {vx}{c^{2}}}\right),} {\displaystyle t'=\gamma \left(t-{\frac {vx}{c^{2}}}\right),}
+{\displaystyle x'=\gamma \left(x-vt\right).} {\displaystyle x'=\gamma \left(x-vt\right).}
+
+
+
+Orthonormal functions are normalized such that
+
+{\displaystyle \langle f_{i},\,f_{j}\rangle =\,\delta _{i,j}} \langle f_{i},\,f_{j}\rangle =\,\delta _{{i,j}}
+with respect to some inner product <f, g>.
+
+In physics, there are two types of mechanics usually examined: classical mechanics and quantum mechanics. For both types of mechanics, the standard mathematical approach is to consider two concepts:
+
+The complete state of the mechanical system at a given time, mathematically encoded as a phase point (classical mechanics) or a pure quantum state vector (quantum mechanics).
+An equation of motion which carries the state forward in time: Hamilton's equations (classical mechanics) or the time-dependent Schrödinger equation (quantum mechanics)
+
+In decision theory, the von Neumann-Morgenstern utility theorem shows that, under certain axioms of rational behavior, a decision-maker faced with risky (probabilistic) outcomes of different choices will behave as if he or she is maximizing the expected value of some function defined over the potential outcomes at some specified point in the future. This function is known as the von Neumann-Morgenstern utility function. The theorem is the basis for expected utility theory.
+
+Area
+The area of a hyperbolic sector in standard position is ln b .
+
+Proof: Integrate under 1/x from 1 to b, add triangle {(0, 0), (1, 0), (1, 1)}, and subtract triangle {(0, 0), (b, 0), (b, 1/b)}. [1]
+
+When in standard position, a hyperbolic sector corresponds to a positive hyperbolic angle at the origin, with the measure of the latter being defined as the area of the former.
+
+Hyperbolic triangle
+
+Hyperbolic triangle (yellow) and hyperbolic sector (red) corresponding to hyperbolic angle u, to the rectangular hyperbola (equation y = 1/x). The legs of the triangle are √2 times the hyperbolic cosine and sine functions.
+When in standard position, a hyperbolic sector determines a hyperbolic triangle, the right triangle with one vertex at the origin, base on the diagonal ray y = x, and third vertex on the hyperbola
+
+
+{\displaystyle Z={\frac {1}{h}}\int \langle q,p|\mathrm {e} ^{-\beta {\hat {H}}}|q,p\rangle \,dq\,dp,}
+where
+
+
+{\displaystyle xy=1,\,} xy=1,\,
+with the hypotenuse being the segment from the origin to the point (x, y) on the hyperbola. The length of the base of this triangle is
+
+{\displaystyle {\sqrt {2}}\cosh u,\,} {\sqrt {2}}\cosh u,\,
+and the altitude is
+
+{\displaystyle {\sqrt {2}}\sinh u,\,} {\sqrt {2}}\sinh u,\,
+where u is the appropriate hyperbolic angle.
+
+
+Hyperbolic triangle (yellow) and hyperbolic sector (red) corresponding to hyperbolic angle u, to the rectangular hyperbola (equation y = 1/x). The legs of the triangle are √2 times the hyperbolic cosine and sine functions.
+When in standard position, a hyperbolic sector determines a hyperbolic triangle, the right triangle with one vertex at the origin, base on the diagonal ray y = x, and third vertex on the hyperbola
+
+{\displaystyle xy=1,\,} xy=1,\,
+with the hypotenuse being the segment from the origin to the point (x, y) on the hyperbola. The length of the base of this triangle is
+
+{\displaystyle {\sqrt {2}}\cosh u,\,} {\sqrt {2}}\cosh u,\,
+and the altitude is
+
+{\displaystyle {\sqrt {2}}\sinh u,\,} {\sqrt {2}}\sinh u,\,
+where u is the appropriate hyperbolic angle.

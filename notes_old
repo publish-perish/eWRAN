@@ -1,0 +1,186 @@
+$u=\frac{rx}{r-z}$ and $v=\frac{ru}{r-z}$. The Riemann metric induced by $\mathbb{R}^3$ is given by,
+$$
+    dr^2 = \frac{4r^4(du^2 + dv^2)}{(r^2 + u^2 + v^2)^2}.
+$$
+
+Let the queue of players be such that
+$Q_k = \lbrace L_1 \le L_2 \le\cdots \le L_n\rbrace \subset \mcL$, and a weight
+$\pi$, so that queue $k$ satisfies,
+$$
+    W(Q_k) = \displaystyle\sum_{L\in Q_k} \pi \frac{\nu(L)}{n},
+$$ 
+where $\nu:\mcL \rightarrow\mathbb{R}$, and $\pi_i\in [0,1]$ is a probability weight such
+that $\sum_{j \in \vert L\vert}\pi_j = 1$. 
+
+
+Restricting the sample space $\mcL\subset\mathbb{Z}^+$, suppose $\mcL_i(\cdot)\in \mcS$ is a given
+non-decreasing step-function where the cost $L_i(c)$ is such that $c_1\le \cdots \le c_n$, and so $L_i(c) = l$ for $c_{l-1}\le c \le c_l$. 
+Define a metric $\rho(L_1(\cdot), L_2(\cdot)) \equiv \vert\vert s_{L_1} -
+s_{L_2}\vert\vert$. 
+
+
+Define the total
+variational norm, where $f$ is any cadlag function,
+$$
+    \vert\vert \nu\vert\vert_{TV} = \sup\lbrace \int f \ d\nu : \vert\vert
+    f\vert\vert_\infty \le 1 \rbrace.
+$$
+
+
+
+Let $\Lambda$ define the class of strictly increasing continuous mappings of
+$[0,1]$ that are self-onto, i.e. self-coherent. For any $\lambda \in \Lambda$,
+define the unit exponential function to be a mapping from the space of
+continuous probabilty under uncertainty to the discrete possible space. Thus, we
+define the metric, 
+$$
+\vert \lambda \vert = \sup \limits_{u\rightarrow s}\frac{\lambda\rightarrow u}{s}.
+$$
+
+TODO:
+Put corollary where it goes.
+
+
+    \emph{Corollary:}
+    Every complex submanifold of a Kahler mainfold is volume minimizing in its
+    homology class. Therefore the eCRs will decrease in entropy (uncertainty)
+    based on a quasi-time-invariant evolution. 
+
+
+Q? Does learning = believing?
+
+TODO: Need well-defined starting point (pure field of identical know-nothings)
+Define the stages, is one perceptron enough? 
+
+GRAPHS
+
+The boxicity of a graph is the minimum dimension in which a given graph can be represented as an intersection graph of axis-parallel boxes. That is, there must exist a one-to-one correspondence between the vertices of the graph and a set of boxes, such that two boxes intersect if and only if there is an edge connecting the corresponding vertices.
+
+A graph has boxicity at most one if and only if it is an interval graph; the boxicity of an arbitrary graph G is the minimum number of interval graphs on the same set of vertices such that the intersection of the edges sets of the interval graphs is G.
+
+EVOLUTION
+
+Evolutionary game theory and its corresponding game dy- namics have also expanded well beyond their initial emphasis on single-species (i.e., symmetric) games with a finite set of (pure) strategies where payoffs result from random one-time interactions between pairs of individuals (also called “two-player symmetric normal form games” or, more simply, “matrix games”). In this paper, we briefly highlight some features of matrix games at the beginning of the following section before generalizing to other classes of symmetric games. These are population games, games with a continuum of pure strategies, and multiplayer games. We then consider two-player asymmetric games, including extensive form games (where pairs of individuals have a series of inter- actions with each other and the set of actions available at later interactions may depend on what choices were made in earlier ones) as well as asymmetric population games and games with continuous strategy spaces.
+
+The replicator equation arises if one equips a
+certain game theoretical model for the evolution of
+behaviour in animal conflicts with dynamics. It serves
+to model many biological processes not only in sociobiology
+but also in population genetics, mathematical
+ecology and even in prebiotic evolution. 
+
+
+Work = change in kinetic energy or neg change in potential energy
+Power = amt work per unit time
+
+In mathematics, Itô's lemma is an identity used in Itô calculus to find the differential of a time-dependent function of a stochastic process. It serves as the stochastic calculus counterpart of the chain rule. It can be heuristically derived by forming the Taylor series expansion of the function up to its second derivatives and retaining terms up to first order in the time increment and second order in the Wiener process increment.
+
+WRAN
+
+Since WRAN systems are for fixed operation,
+transmission channels are expected to change
+very slowly, so there is little time diversity gain
+to be achieved through burst allocation across
+different symbols. Therefore, the downstream
+bursts in IEEE 802.22 will be allocated progressively
+across subchannels in the frequency
+domain, as depicted in Fig. 3, to minimize overhead
+by simplifying the downstream map. This
+will also contribute to reducing decoding latency.
+The upstream bursts will be allocated progressively
+across symbols to minimize the number of
+subchannels used by CPE, hence reducing the
+instantaneous effective isotropic radiated power
+(EIRP) to mitigate interference to incumbent
+systems. The upstream bursts can also be
+mapped on a 7-symbol column basis, as shown i
+
+
+There are three types of preamble defined in
+WRAN:, superframe preamble, frame preamble,
+and CBP preamble, in order to facilitate burst
+detection, synchronization, and channel estimation.
+All three preambles are one OFDM symbol
+long in time with 1/4 cyclic prefix.
+All CPEs synchronize to a BS, in time and
+frequency, using the superframe preamble, which
+consists of four repetitions of a short training
+sequence (STS) following the cyclic prefix. The
+frame preamble is used for synchronization,
+channel estimation, frequency offset estimation,
+and received power estimation. It consists of two
+repetitions of a long training sequence (LTS).
+The CBP preamble is used for CBP detection,
+synchronization, frequency offset estimation, and
+CBP channel estimation. It has the same structure
+as the superframe preamble but uses a different
+STS to be distinct from the superframe
+preamble with low cross-correlation.
+In order to obtain robust channel estimation
+
+The elementary unit for resource allocation is
+the subchannel, which consists of 28 subcarriers
+with 24 data subcarriers and 4 pilot subcarriers.
+There are a total of 60 subchannels in each
+OFDM symbol.
+
+. In the upstream, two subchannels
+will be reserved for ranging, bandwidth
+request message, or UCS notification.
+ The
+remaining subchannels will be interleaved with
+block size 1624 (28 × 58), including both pilot
+and data. The frequency interleaving algorithms
+for upstream and downstream are the same as
+the bit interleaving algorithm, but with different
+parameters. The inclusion of pilots in the interleaving
+process in the upstream direction is to
+ensure that every CPE burst that arrives at the
+BS will have one pilot on each subcarrier over
+the period of seven OFDMA symbols, which is
+the minimum upstream burst length. On the
+other hand, the exclusion of pilots in the interleaving
+process in the downstream is to allow
+fast channel estimation (using fewer than seven
+OFDM symbols) at CPEs to allow for delay-sensitive
+applications
+
+If it is established that WRAN operation on
+channel N may create interference to a broadcast
+incumbent operating on a related channel,
+the SM will have the following four options:
+• Reduce the EIRP of the CPE by placing a
+limit on the transmit power control (TPC)
+range to eliminate the interference in their
+local area.
+• If such a decrease in CPE EIRP renders the
+service unsustainable, disallow these CPE
+units (i.e., these CPE units need to seek
+service on another channel from the same
+or a different service provider).
+• Reduce the EIRP of the BS transmission to
+eliminate the potential interference.
+• In many cases a reduction in the BS EIRP
+will no longer allow proper WRAN operation
+with distant CPE, and the SM will need
+to initiate a channel move (to its first backup
+channel) involving the BS and all of its
+associated CPE.
+There will always be a manual override at the
+BS in the unlikely event that an unexpected
+interference situation occurs. It is assumed that
+the WRAN operator will have the ultimate
+responsibility for avoiding interference to incumbents.
+Any special event will be handle
+
+Another requirement of the 802.22 draft standard
+is that the BS must have access to an
+incumbent database service. This service provides
+accurate and up-to-date information
+describing protected broadcast operation in the
+area
+
+NOTE: Huwaei nodeB evolution
+
+The core of an m-sided assignment game☆
+

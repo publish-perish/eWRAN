@@ -1,0 +1,87 @@
+
+$$ 
+    \(s_i, s_{-i}) = \displaystyle\sum_{L_i \in [s_{-i}]_\times}
+    \int_{c_{MIN}}^{c_{MAX}} V(L_i-1, s_{-i}),
+$$
+which we may interpret as the cumulative distribution function (CDF) across the
+sample space $s_{\mcL} =\mcS\times \mcS$.
+
+
+Let there be a partition function $Z:\mcS \times \mcS\rightarrow \mcS$, 
+and fix the mixed strategy vector, $[s] = [s_1, \cdots, s_N] \in
+\mcS\times\mcS$.
+TODO: FIX THIS NONSENSE!\\
+The probability that $[s]$ is the equilibrium state is,
+$$
+    \mathbb{P}([s]) = \displaystyle\sum_{s_i \in [s]} \frac{1}{Z} e^{-s
+    (r_i^2)},
+$$
+with expected utility, $\mathbb{E}([s]) = \displaystyle\sum_{[s]} \pi_i
+\mu(r_i)$.
+
+We model the eCR priority as the energy function, where the
+time-constrained players are more energetic than the cherry-picking types, as
+they have a higher incentive to sample more queues.
+We have the $2$-sphere, TODO: collapse onto unit circle
+$$
+    \phi(S_i) = \delta\mu(S_i, S_{-i}) = 
+$$
+
+We determine that the closed ball $\overline{B}_i$ belongs to the player for which 
+$s_j<_{st} s_i \ \forall \ s_j \in [s]$.
+Let $k$ be a queue containing $n$ eCRs and enveloping algebra $\gamma(S_i)$,
+so that player $i$ holds the highest energy.
+********** the flux conditions in three cases: (FINISH) is determined by the gradient
+across the boundary of closed ball of $\overline{B}_i$.
+Now define, for a player $i$, a function
+$\alpha_t(\mcS) \longrightarrow S_i$ as as a mapping of queues in $\mcS$ to a
+subset sampled by player $i$ at time $t$. 
+Let $\mcM$ be a random measure on $(\mcS \times \mcS, \mcD)$, the $\sigma$-algebra of the
+Poisson arrival process, and l
+
+Define the set of best responses as a subset of $\mcS\times\mcS$ and a normalizing function $\mcG(S_i, S_{-i})$. 
+We have 4 axioms; let balls $S_1, S_2$ be members of the stable state $\mcG$. 
+As only pair interactions are used, we have transitivity, so for $S_1 < S_2 < S_3$, 
+either $S_1 > S_2 \rightarrow S_1 > S_3$ or $S_2 > S_1 \rightarrow S_3 > S_1$, 
+and we have completeness. Define the projection of the $n$-sphere onto the complex plane as a bijection $\mu: \mcL \rightarrow \mathbb{R}^n$ as $\mu(L_i, L_{-i}) = \theta$, where $\theta$ is a measure of the energy of the $n$-sphere an angle in $[0,2\pi]$ 
+
+
+We take the cost function $C(\cdot)$ to be a nondegenerate
+continuous probability density function
+$$
+    C(S_i,S_{-i}) = \int \frac{f(S)}{S - [s]_\times} dS
+$$
+where $f$ is any cadlag function.
+
+Let $y$ be the tangent line to $B_i(\cdot)$,
+$$
+    y = \frac{(r+a)^2(r+b)^2}{r^2}.
+$$
+
+We may view the strategy space of eCR $i$ as a pair $(\mcL, \mathbb{P}(\mcS))$,
+defining a distribution equipped with an orientation, as such we have a natural
+case of the mapping function. 
+We define a motivating operator $\phi$ to be a function of the probability
+current, and a total variation distance defined by the player types,
+$$
+    \delta(s_i,s_{-i}) = \sup\limits_{\mcL \in s_{-i}} u(\mcL) - v(\mcL).
+$$
+$S_i$ may be represented by a statistical
+ensemble (mixed type), with probability $p_i$ that the system is in a pure
+state.
+Define $\theta^*$ to be the complex
+conjugate of the potential energy of the player in stasis, $\theta$.
+
+
+
+Fix $s_i(\cdot) \in \mcL$, and suppose all other players use mixed strategy
+$s_{-i}(\cdot)$, the expected fitness of queue $k$, 
+$$
+   C(s_i, s_{-i}) = c\displaystyle\sum_{[s]_i} G(L_i, s_{-i}) + \hat c L_i,
+$$
+where $G(L,s)\mapsto \mathbb{R}$ is a stereographic projection of the
+exterior and interior of the manifold $\mcS(\mcL)$. 
+
+We define the cost of an eCR joining a queue as a direct sum $G = g_s + g_\kappa$
+
+
