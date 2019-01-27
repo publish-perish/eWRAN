@@ -1,0 +1,59 @@
+
+Let $(U,\tau), (V,\sigma)$ and $(T,\theta)$ be three topological spaces, and let
+$f$, $g$ be two extended real-valued functions defined on $T\times U\times V$.
+If $K$ is a multifunction from $T\times U$ to $V$ adn $H$ is a multifunction
+from $T$ to $U$, we consider the following parameterized two-level
+Stackelberg game. The first move is made by the leader, who gains a heirarchical
+advantage. The lead problem,
+$$
+\bigg(S(t)\bigg) \inf\limits_{x\in H(t)} \sup\limits_{y\in M(t,x)} f(t,x,y),
+$$
+is followed by the the lower optimization problem, where for any $(t,x)\in
+T\times U$, $M(t,x)$ is the solution set of
+$$
+\bigg(P(t,x)\bigg) \inf\limits_{y\in K(t,x)} f(t,x,y).
+$$
+
+Let $Y$ be a nonempty multifunction from $U$ to $V$, that is, for every point
+$x\in U$, we have a nonempty subset $Y(x) \subset V$. The graph of $Y$ defines
+a subset of $U\times V$ as,
+$$
+G(Y) = \lbrace (x,y) \in U \times V : y\in Y(x)\rbrace.
+$$
+
+If there are $p$ unknown functions $f_i$ to be determined that are
+dependent on $m$ variables $x_1 \cdots x_m$ and if the
+functional depends on higher derivatives of the $f_i$ up to $n$-th
+where $\mu_1 \cdots \mu_j$ are indices that span the number of variables, that is they go from 1 to m. Then the Euler–Lagrange equation is
+$$
+\sum_{j=1}^n \sum_{\mu_1 \leq \ldots \leq \mu_j} (-1)^j \partial_{ \mu_{1}\ldots \mu_{j} }^j \left( \frac{\partial \mathcal{L} }{\partial f_{i,\mu_1\dots\mu_j}}\right)=0
+$$
+
+In a game, each player may pick a strategy, and the payoff is determined by the
+strategies. A player may adhere to a single strategy, which is called a pure
+strategy, it is the strategy defined as chosen with probability 1.
+Players may also choose to randomly to play each strategy with a
+certain probability, and the resulting mixed strategy is a distribution of these
+probabilities. A mixed strategy can then be represented as vector $x$. 
+
+The replicator dynamics model considers population dynamics for a haploid
+species, which have a single set of chromosomes, with two genes. Let $S_1$ and
+$S_2$ be the set of possible alleles for the first and second gene,
+respectively. Then an individual can be represented by their alleles $(i, j) \in
+S_1 \times S_2$. We assume that $n = \vert S1 \vert = \vert S2 \vert$, so that
+$W$ is an $n \times n$ matrix. The environment for a species is represented by
+$W$ , i.e. the fitness of an organism $(i, j)$ can be represented by the entry
+$W_{i,j}$. Let $x_i$ denote the proportion of the first gene in the population
+with allele $i$ and $y_j$ as the proportion of the second gene in the population
+with allele $j$. Then $x$ and $y$ are the probability distributions of the alleles for the first and second gene, respectively.
+
+Consider the following stochastic LPV system.
+$$
+dx(t) = \bigg\lbrace A(\theta(t))x(t) + Bu(t) + Dv(t)\bigg\rbrace dt +
+A_p(\theta(t))x(t)dw(t), x(0)=x^0, z(t) = E(\theta(t))x(t),
+$$
+where $x(t) \in \mathbb{R}^n$ denotes the state vector, $u(t) \in \mathbb{R}^m$
+denotes the control input, $v(t)\in \mathbb{R^{n_v}}$ denotes the external
+disturbance. $z(t)\in\mathbb{R}^{n_z}$ is the controlled output.
+
+

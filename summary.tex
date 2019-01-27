@@ -52,7 +52,7 @@ exploitation of uncertainties inherent to a spectrum sensing period.
 Our focus is on the behavior of the cognitive radio during the
 coexistence window, and their use of the coexistence beacon protocol. 
 We provide an alternative
-iteration of the process so that determines channels that can be acquired to satisfy the
+iteration of the process so that determines channels which are acquired to satisfy the
 QoS requirements of the given workloads. We determine that intra-channel sharing
 is optimized by the cooperation, and the resulting inter-system demand
 alliviates the channel contention processes with coexisting CRN. 
@@ -130,8 +130,8 @@ queues are natural targets for an adversary.
 The eCRs participate in a selection scheme that
 encourages cooperation by a shared fitness function. The queues
 are self-organizing and
-self-enforcing; players may apply peer
-pressure to abide by regulations by affecting queue fitness.
+self-enforcing; a player's utility function influences their decision process,
+and players may apply peer pressure to affect queue fitness.
 
 Following the lead of Lal
 and Rao (1997), we define two types of eCR nodes: cherry pickers and
@@ -202,16 +202,15 @@ define the indexed strategy set $\lbrace L_1 \le L_2 \le\cdots \le L_m\rbrace
 We adopt the mean field theorem from Xu and Hajek (CITE).
 Fix $s_i(\cdot) \in \mcS$, and suppose all other players use mixed strategy
 $s_{-i}(\cdot)$. 
-The cost matrix is given as,
+The cost bmatrix is given as,
 $$
     C(s_i, s_{-i}) = \displaystyle \sum_{L_i \in s_i} C(L_i,s_{-i})s(L_i).
 $$
-Define $\kappa$ to be the number of queues of length at least $k$.
+Define $\r(t)$ to be the number of queues of length at least $k$ at time $t$.
 From (CITE), if $s_1,s_2\in\mcS$, with $s_1<_{st} s_2$, then
 $\mathbb{E}[W(L,s_1)] > \mathbb{E}[W(L,s_2)]$.
 The mean field equation describes a separable and complete metric space
-$(\mcS, \mathbb{R}^n, \mcD)$, where $\mcD$ is the space of right-continuous,
-left-limited (cadlag) functions.
+$(\mcS, \mathbb{R}^n, \mcD)$, where $\mcD$ is the space of right-continuous, left-limited (cadlag) functions.
 
 Let $\Omega$ denote the class of strictly increasing continuous mappings of
 $[0,1]$ onto itself. For $\pi \in \Omega$, $\pi \cdot \mcL \in [0,1]$, and we have a complete 
@@ -235,18 +234,25 @@ $$
 The mapping exists if and only if there exists a strategy vector $[s]$, and a
 function $\phi$ such that $\phi(s_i) = C((-\infty,s_i]), \ i = 1,2,\cdots, N$ and $\phi(s_1) < \phi(s_2) < \cdots < \phi(s_N)$, where phi is a skew-distribution, i.e. a
 factorization of the skew-symmetric
-matrix of the 4-vector, $[L_i]_{\times s_{-i}}$ that is also left-tailed.\\
+bmatrix of the 4-vector, $[L_i]_{\times s_{-i}}$ that is also left-tailed.\\
 \textbf{Proof:} TODO: %2
 \textbf{Proof:} 
 Let $\phi:\mcS\times\mcS \rightarrow \mcS$ be a function such that 
-for cost $c$, 
+for cost $C$,
+
+We have a rotation $g_\phi$ about the z-axis through $\phi$,
 $$
-    \phi^{-1}(S_i) = \sup_{s_{L_i} \in S_i} [s]_\times = \begin{matrix} 0 & -t
-    & \hat c \\ t & 0 & -c\\-\hat c & \omega & 0\end{matrix}
+    \zeta- = e^{i\phi}\zeta 
+$$
+and $\omega' = e^{i\theta}\omega$, a rotation of $\theta$ through the x-axis.
+$$
+    \phi^{-1}(S_i) = \sup_{s_{L_i} \in S_i} [s]_\times = \begin{bmatrix} 0 & -t
+    & \hat c \\ t & 0 & -c\\-\hat c & c & 0\end{bmatrix}
 $$
 To illustrate, let $n=2$ and consider $[s]= [s_1, s_2]$. Since $\pi \in [0,1]^n$
 such that $\sum_{\mcL \in s_i} \pi_i = 1$ holds for all $s_i\in [s]$, and
-$\mathbb{P}\big(\gamma([s])\big) = 1$, we have that $[s]_\times$ forms a basis for $S_i$. The function $\kappa_T$ determines the mean field equation
+$\mathbb{P}\big(\gamma([s])\big) = 1$, we have that $[s]_\times$ forms a basis
+for $S_i$, and determines the mean field equation
 describing the number of queues of length at least $t$ with respect to the wait time, where, 
 $$
     \displaystyle\int_{t=0}^\infty \kappa_{s_{-i}}^{L_i}(t) = \mathbb{E}[W(L_i, s_{-i})].
@@ -268,25 +274,61 @@ $$
     = (1,2)\\ -1, \quad (c,\hat c) = (2,1) \\ 0 \quad c=\hat c\end{cases}.
 $$
 defines a mapping of a player's actions to a bifurcation, determined by the 
-quadratic form $\pm [\omega t^2 - c^2 -\hat c^2 - \phi^2]$ 
-surface $\rho(L_i) = c + \hat ci$, where $\phi(L_i) = r(t)e^{i\theta}$.
+quadratic form $\pm [\omega^2 t^2 - c^2 -\hat c^2 - \phi^2]$ 
+surface $\rho(L_i) = c + \hat ci$, where $\phi(L_i) = r(t)e^{i\theta}$, where
+$$
+    r(t) = \bigg\lbrace \begin{bmatrix} c &-\overline{\hat c}\\ \hat c & \overline
+c\end{bmatrix} : \displaystyle\int_{-\infty}^t \vert c \vert = 1\bigg\rbrace.
+$$
 Suppose $\rho_i$ defines neighbors in $\mcS$, and uses a bilinear form,
 $$  
-   c\cdot \hat c = \pm [\omega t_1t_2 - r_1r_2],
+   c\cdot \hat c = \pm [\omega_1\omega_2 t_1t_2 - r_1r_2],
 $$
 where $\omega = 1/\lambda$, and orthonormal basis $-\eta(e_0,e_0) = \eta(e_1,e_1) = \eta(e_2,e_2) =
 \eta(e_3,e_3) = 1$, where the function $\eta$ is the skew-symmetric operator in
 the Minkowski space.
 We may extend the arrangement $s_1<s_2<\cdots s_N$ to the trihedral plane for
-fixed time $\tau$. Although a mapping to the $n$-sphere is possible in theory,
-we build from the geometric form, and extend the cross-product $[s_1]_\times
+fixed time $\tau$. 
+We build from the geometric form, and extend the cross-product $[s_1]_\times
 s_2$, which is characterized by the transition $L_i=k$ to $L_{i+1}=k+1$, forming
-a tensor.
+a tensor flow of similarity groups by intent. Let there be a distribution of $K$
+queues, with compound distribution described as
+$$
+    \theta_\zeta(t) = \displaystyle \int_{\hat C} r(t) d\tau =
+    e^{\lambda(\phi_\zeta(t)-1)}.
+$$
+We examine the skew-Hermetian assignment, and the resulting tangent vector, or
+four-velocity.
+The four coordinate functions $\theta^{a}(\tau),\;a=0,1,2,3$ are real functions
+of a real variable $\tau$. Without the existence of a metric one
+can speak of the difference between a point $p$ on the curve at
+the parameter value $\tau _{0}$ and a point on the curve
+$(\tau _{0}+\Delta \tau)$ farther away. In the limit $\Delta\tau\rightarrow 0$,
+let there be a point such that, 
+$$
+    \begin{bmatrix} n\\ K\end{bmatrix} = \begin{bmatrix} 1\\ K\end{bmatrix} =
+    \begin{bmatrix} 0\\ K\end{bmatrix} = 1.
+$$
+We define our rotary group as the cotangent vector field $[\pi]$ as $n$
+approaches $N$, the size of the queues of the
+tangent neighbor set, $n\ge \max_t\lbrace N \rbrace_\phi$, which define a field that
+follows the similarities of the extended cost function.
+    
+TODO: \\
+1. form the mobius negative binomial stitching\\
+2. attach to geodesics
+3. axis-align to random process with cone to inft
 % TIKZ WEDGE STARS
 Consider a mapping $\mcS\mapsto \mcD$ that preserves the quadratic form $(t, r,
-\theta)\mapsto t^2-c^2-\hat c^2-\phi^2$, and the general orthogonal group $O(1,3)$.
-The jump-diffusion process was constructed to have ergodic properties so that after initially flowing away from its initial condition it would generate samples from the posterior probability model.
-We introduce a transform $\gamma: \mcS \rightarrow \mcS$ such that,
+\theta)\mapsto (\omega^2 t^2-c^2-\hat c^2)$, and the general orthogonal group $O(1,3)$.
+The jump-diffusion process was constructed to have ergodic properties so that
+after initially flowing away from its initial condition it would generate
+samples from the posterior probability model. We have that $\phi\cdot
+\mcS\subset \mcS$ is the subset of skew-Hermetian matrices known as signed
+permutation matrices. We extend our mean-field model to include this
+representation by setting $\begin{bmatrix}0 // k\end{bmatrix} = \begin{bmatrix}1 //
+k\end{bmatrix}$ at the stop time $\tau$.
+We introduce a transform 
 $\gamma: s_i(\mcL) \rightarrow [0,1]^2$ such that,
 $$
     \gamma(s_i \in \mcS) = \gamma\bigg(\displaystyle\sum_{s_1}^{s_i} \pi_{L_i} \bigg)-
@@ -305,31 +347,40 @@ $$
 TODO: %1
 We proceed to determine the skew-distribution.
 The map projection onto the complex plane is given by the Lorentz
-translation,
+translation, which gives the displacement $L_{i}=k$ to $L_{i+1}=k+1$ as a
+function of time. The mapping of $\pi$ divided by $\Delta \tau$ defines a vector, the tangent vector
+of the world line at the point $s$.
 $$
-    f = -\epsilon \cdot s
+    \vec{s} = (t,c,\hat c) = \left( \frac{dr}{d\tau}\;, \hat c \frac{dt}{d\tau}
+    \right),
 $$
-with derivative 
+and
 $$
-    \frac{\partial f}{\partial s} = -\epsilon \cdot \frac{\partial s}{\partial
+    \phi(t) = -\epsilon \cdot \vec s,
+$$
+with derivative,
+$$
+    \frac{\partial \phi}{\partial s} = -\epsilon \cdot \frac{\partial s}{\partial
     s} = -\epsilon\cdot I = -\epsilon.
 $$
+TODO: Explain.
 We take the variation process of $S_i$ as, 
 $$
     \langle S_i\rangle = \big\lbrace s \in S_{-i} \vert \sup_{s_{L_{-i}\times
-    L_j}} <s_i, s_j> < \infty\big\rbrace.
+    L_j}} \vert\vert s_i- s_j\vert \vert < \infty\big\rbrace.
 $$
 Now, let $\phi:\mcS\times \mathbb{N} \rightarrow S$ be a stochastic process
 defining $dS_t$.
 Suppose $L(\cdot)\in \mcS$ is given, the solution to
 $s_i(k) = \int_{c_i - k}^{c_i} \pi_i(c) \ dc$ gives a set of unique jumping points $0=c_0<
 c_1< \cdots < c_{L_{MAX}} = c_{MAX}$. 
-Any cadlag finite variation process $S$ has quadratic variation equal to the sum
-of the squares of the jumps $0=c_0<c_1</cdots$.
+Any cadlag finite variation process $S$ has quadratic variation (TODO: don't
+forget to use) equal to the sum
+of the squares of the jumps $0=c_0<c_1<\cdots c_n$.
 Let $W_t: [0, +\infty) \times \Omega \rightarrow \mcS$ be a
 one-dimensional geometric (exponential) Weiner process. We define right-continuity as 
 a \emph{stopping time} $\tau:\mcS \rightarrow [0,+\infty]$, which occurs at a random jumping point. This is the first hitting time
-for the region $\lbrace \hat c \in [0,\hat c_{MAX}] \vert c \ge c_max\rbrace$.
+for the region $\lbrace \hat c \in [0,\hat c_{MAX}] \vert c \ge c_{max}\rbrace$.
 We have the following stochastic differential equation, with stopping time
 $\tau(\omega)$,
 $$
@@ -352,7 +403,7 @@ $\text{sgn}(S_t) = (-1)^m$, so that $c_1<c_2$ implies $s_{L_1} >_{st} s_{L_2}$.
 Now, $s_{L_1} \le_{st} s_{L_2}$, indicates that $s_{L_1}$ is second-order
 stochastically dominated by $s_{L_2}$, that is, 
 $$
-    \displaystyle\int_{-\infty}^s\vert s_{L_1}(t) - s_{L_2} \vert dt \ge 0.
+    \displaystyle\int_{-\infty}^s\vert s_{L_1}(t) - s_{L_2} \vert \ dt \ge 0.
 $$
 is the sphere of influence $S_i \in \mcS\times\mcS$ over the strategy
 space of player $i$, $s_i\circ\mcL = S_i \in \mcS\times\mcS$.
@@ -391,7 +442,10 @@ TODO:
 3. complete the exterior, must be convex
 4. define the incidents on the SIG
 
-
+TODO (Model the queue):\\ % Where to put this?
+1. model the (fair?) cooperation
+2. show equilibrium
+3. 
 
 
 \end{document}
