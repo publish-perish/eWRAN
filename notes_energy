@@ -1,12 +1,4 @@
 
-$$ 
-    \(s_i, s_{-i}) = \displaystyle\sum_{L_i \in [s_{-i}]_\times}
-    \int_{c_{MIN}}^{c_{MAX}} V(L_i-1, s_{-i}),
-$$
-which we may interpret as the cumulative distribution function (CDF) across the
-sample space $s_{\mcL} =\mcS\times \mcS$.
-
-
 Let there be a partition function $Z:\mcS \times \mcS\rightarrow \mcS$, 
 and fix the mixed strategy vector, $[s] = [s_1, \cdots, s_N] \in
 \mcS\times\mcS$.
@@ -36,8 +28,8 @@ across the boundary of closed ball of $\overline{B}_i$.
 Now define, for a player $i$, a function
 $\alpha_t(\mcS) \longrightarrow S_i$ as as a mapping of queues in $\mcS$ to a
 subset sampled by player $i$ at time $t$. 
-Let $\mcM$ be a random measure on $(\mcS \times \mcS, \mcD)$, the $\sigma$-algebra of the
-Poisson arrival process, and l
+Let $\mcM$ be a random measure on $(\mcS \times \mcS, \mcD)$, the
+$\sigma$-algebra of the Poisson arrival process.
 
 Define the set of best responses as a subset of $\mcS\times\mcS$ and a normalizing function $\mcG(S_i, S_{-i})$. 
 We have 4 axioms; let balls $S_1, S_2$ be members of the stable state $\mcG$. 
@@ -69,8 +61,7 @@ $$
 $S_i$ may be represented by a statistical
 ensemble (mixed type), with probability $p_i$ that the system is in a pure
 state.
-Define $\theta^*$ to be the complex
-conjugate of the potential energy of the player in stasis, $\theta$.
+Define $\theta^*$ to be the complex conjugate of the potential energy of the player in stasis, $\theta$.
 
 
 

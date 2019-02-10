@@ -1,0 +1,124 @@
+
+MODEL
+Each SU has a doubly-long-linked list. Each link is a possible group formation w/in
+range. For each link there is a chain representing the interactions with the SUs
+in the chosen group. Each member updates its trust value for the new
+member based on previous action, and how many neighbors have history of the
+incomer, e.g.  the more trusting the group the better the fitness. Group fitness
+can be jointly computed or ask the BS (a member can request BS verification if
+their truth level drops too low?)
+
+TRUST ALGO
+Single perceptron with linear decision.
+Options:
+1. Use point-slope form, where m associates with the mulitplicative weight update method. 
+2. Use both in a control-feedback loop, use the weights for a filter, until
+matrix becomes degenerate (the iteration 'escapes' the sink).
+3. The environment is updated by a feedback matrix based on the frequency
+distribution of the alleles (a mapping of their genetic makeup, i.e. thier
+spectrum requests in different groups).
+This provides the mapping to the BAG as events are a function of actions.
+4. Use y=x, and base decision by performing correlation (fading in time).
+Min-Max Theorem?
+
+NOTE: Dr. Quint says a bayesian attack graph is an incident graph, and under
+topologies, also a simplice.
+
+A ROUND
+Two players encounter each other each round and share info, modeled as their
+convex (need to prove convexity, easy as decisions are binary) combination of
+actions. 
+The action chosen is the one with the most weight, with each offspring starting
+off with equal division.
+Options:
+1. Static model: assume the next gen follows E[x] = A E[y]. Is a representation
+of infinite demand, unreasonable.
+2. In the dynamic model, some of the PUs will get lowered trust from an attack, and is retained in memory (until the attacker is out of range), resulting in attackers being
+'shunned'. The attacks occur at the mutation rate (modeled as a mutation).
+So larger groups will have more attacks, but will also get a 'good' mutation,
+where there is an extra person to perform spectrum sensing while waiting in the
+queue.
+
+BASIC MOVES
+A basic move is attack or not attack, this, along with the player type, define
+the basic moves, capturing the group dynamics. Define, attack, not attack, SU friend, adversary SU:
+{(A, ASU), (NA, ASU), (NA, SUF)}, the chosen action will be majority (Bayesian
+explanation)
+The truth values of the others are updated, the group fitness is determined by
+sharing values between neighbors, so slight variation in large groups.
+Risk/Reward: In the case of an attack,
+1. The decision is (A, ASU) only if the adversary is detected, which may not happen 
+1. Eavesdropping from within the group
+2. All being jammed as a group by a new PU.
+3. PUE attack from within the group or encountering a single PU
+
+BASIC SCENARIOS
+1. A new SU joins a group.
+2. Two SUs encounter each other alone.
+3. A group runs out of resources, can be modeled as infinite wait time?
+4. An SUs truth fitness value drops below threshold. 
+5. A groups truth fitness drops below threshold.
+
+Q: How will the attack be predicted? How to cooperate to prevent attacks? Goal:
+Extinction of the adversary population.
+
+THE ADVANCED ATTACK MODEL
+Opportunistic, we make no assumptions on enemy decision-making, or worst case
+scenario they have been observing/ planning.
+
+NOTE: The linked list is confusing. More natural to evolve matrix dimensions, no
+buckets (not enough stats).
+
+THE ADVANCED DECISION MODEL
+If another SU is suspect, (given by the perceptron), the SU can remove that user
+from the chains (in time) of the linked list and make a prediction of the other
+SUs fitness based on history, can also check with the BS (in return for updating
+collected and locational data).
+* Can be modeled as a hypergraph, i.e. a simple cooperative game. An abstract
+simplicial complex contains all subsets of every edge. On the other side is a
+Sperner family. The hypergraph is a natural representation as the edges are a
+power set representations of the nodes. Is an incident structure, cite Dr.
+Quint.                 
+Q: Can I use a compensation model? 
+
+DECISION: Wait in line to use the phone or move onto the next group.
+
+INCENTIVE
+The SUs have motivation to collaborate on sensing.
+1. Use memory to judge their neighbors trustworthyness (by sensing their signal).
+2. The SUs will cluster for protection (adversary is powerful), and so there is
+incentive to want to obtain trust for safety in numbers: more power, more
+sensors = more directions).
+3. The BS restrictions only allow for near communication except at scheduled,
+want to maintain trust as all reighbors determine 'fitness contribution'.
+REASON
+The idea is that adversary nodes play an offensive strategy, and so will switch strategies at
+a higher rate. essions. Also physics from necessity of staying under the noise floor.
+SUs interaction modeled as a grocery store game, so an SU switching groups (weak
+equilibrium) will be suspect, and the SUs will want to protect their agreed upon
+allocation of the spectrum band (like in the fishing village).
+, determined by their priority. Wait times for low
+priority SUs are longer, allowing for exploration. 
+Note - PU game is not really zero-sum (i.e., cake splitting, but here can use Oracle
+algorithm), as trust factors the payoff. An SU with low trust value has less
+payoff from collaboration (adversary model?). 
+This is the mutation (disturbance
+causing mutation?) in the grocery-store game, which is evolutionary!
+The algo uses the replicator equation to form a dynamical (chaotic?) system
+based on the decisions to move queues, as a supermarket game is considered with FCFS queues with unit
+exponential service rate and global Poisson arrival rate lambda.
+
+Extra
+- but correlation is expensive
+- with a structured DAG based on influence from the BS, can get better results,
+maybe a chaotic multi-sink system)
+(more assumptions needed)
+- possible to make distributed and fair? Can always refer back to BS if trust
+falls below threshold
+- The space of solutions evolves in the form of a Serpinski triangle ->
+Serpinski
+
+The players come to submit thier action, most warriors wins, with subesequent
+subdivisions based on the optimal topology. We are are looking for abelian
+groups transformed to infinite dimensional metric space for projection onto the
+simplicle complex.

@@ -1,0 +1,21 @@
+Let $\mcM$ be a random measure on $(\mcS \times \mcS, \mcD)$, the
+$\sigma$-algebra of the Poisson arrival process.
+
+Define the set of best responses as a subset of $\mcS\times\mcS$ and a normalizing function $\mcG(S_i, S_{-i})$. 
+We have 4 axioms; let balls $S_1, S_2$ be members of the stable state $\mcG$. 
+As only pair interactions are used, we have transitivity, so for $S_1 < S_2 < S_3$, 
+either $S_1 > S_2 \rightarrow S_1 > S_3$ or $S_2 > S_1 \rightarrow S_3 > S_1$, 
+and we have completeness. Define the projection of the $n$-sphere onto the complex plane as a bijection $\mu: \mcL \rightarrow \mathbb{R}^n$ as $\mu(L_i, L_{-i}) = \theta$, where $\theta$ is a measure of the energy of the $n$-sphere an angle in $[0,2\pi]$ 
+
+
+
+We have the tangent line of the arrival process of eCRs sampling $L_i$ queues at price $c$
+$$
+    \lambda s_{-i}(L_i)(r_{L_i}(c-1) - r_{L_i}(c).
+$$
+Using the tangent lines, we begin a tesselation process on $SIG_i$, a collection of mobius triangles which are oriented perpendicular to the direction of flux
+
+The density matrix describing a mixed state is defined to be an operator of the form
+$\rho =\sum _{s}p_{s}|\psi _{s}\rangle \langle \psi _{s}|$
+where $p_{s}$ is the fraction of the ensemble in each pure
+state $|\psi _{s}\rangle$ .

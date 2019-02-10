@@ -4,9 +4,7 @@ We have the tangent line of the arrival process of eCRs sampling $L_i$ queues at
 $$
     \lambda s_{-i}(L_i)(r_{L_i}(c-1) - r_{L_i}(c).
 $$
-Using the tangent lines, we begin a tesselation process on $SIG_i$, a collection of
-mobius triangles which are oriented perpendicular to the direction of flux, and
-define a map projection $\varphi(SIG(mathbb{B}(\cdot)))$ as a minimization of the Dirichlet energy, 
+Using the tangent lines, we begin a tesselation process on $SIG_i$, a collection of mobius triangles which are oriented perpendicular to the direction of flux, and define a map projection $\varphi(SIG(mathbb{B}(\cdot)))$ as a minimization of the Dirichlet energy, 
 $$
 	E[\mu]  = \frac{1}{2} \displaystyle\int_{\mcS}
     \vert\vert\triangledown\mu(s)\vert
@@ -32,6 +30,15 @@ n\rbrace$ in queue $k$. Fix time $t$ and let $\phi(\cdot)$ be defined as
 $\max_{s_i\in Q}$ The inverse $\frac{1}{c_i} \approx 
 \theta\mathbb{P(\mcS)}$.
 OUTLINE : (1) $\alpha_k$ is the CDF of 
+$$ 
+    \(s_i, s_{-i}) = \displaystyle\sum_{L_i \in [s_{-i}]_\times}
+    \int_{c_{MIN}}^{c_{MAX}} V(L_i-1, s_{-i}),
+$$
+which we may interpret as the cumulative distribution function (CDF) across the
+sample space $s_{\mcL} =\mcS\times \mcS$.
+
+
+
 We have the $2$-sphere, TODO: collapse onto unit circle
 
 \subsection{Enhanced Cognitive Structure}

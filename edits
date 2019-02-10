@@ -1,0 +1,47 @@
+Let the arrival process have Poisson distribution
+$$
+    \mathbb{P}\lbrace L_i = k\rbrace = \frac{e^{-\lambda}\lambda^k}{k!} = f^k(t) \ dt.
+$$
+
+Let there be a partition function $Z:\mcS \times \mcS\rightarrow \mcS$, 
+and fix the mixed strategy vector, $[s] = [s_1, \cdots, s_N] \in
+\mcS\times\mcS$.
+TODO: FIX THIS NONSENSE!\\
+The probability that $[s]$ is the equilibrium state is,
+$$
+    \mathbb{P}([s]) = \displaystyle\sum_{s_i \in [s]} \frac{1}{Z} e^{-s
+    (r_i^2)},
+$$
+with expected utility, $\mathbb{E}([s]) = \displaystyle\sum_{[s]} \pi_i
+\mu(r_i)$.
+
+
+
+We address a scenario where the standards assumed by the IEEE 802.22 draft for
+wireless regional access networks (WRAN) are not supported. Namely, incomplete
+provider (PU) data. This
+scenario, as an example, could occur as a result of incomplete or corrupted
+infrastructure. Further, we model the presence of a
+powerful adversary and investigate WRAN operations in the worst case, where the
+adversary has fully infiltrated the primary user's (PU) broadcast
+spectrum. We propose a heirarchical game theoretic structure for resource allocation 
+and investigate the ability of the WRAN to protect itself
+and its cognitive nodes (CRs) from attack. 
+
+
+The strategies of the eCRs, within  framework, allow us to complete the
+metric on the space of cadlag functions restricted to $\mcL \in \mathbb{Z}^n$.
+We represent the bijection $\mcL \rightarrow \mathbb{Z}^{n+}$ as the exterior of
+the stationary set (probability distribution, but which one? density?) of the eCR strategies. 
+
+
+Thus, $\mcL_i< \infty$ almost surely and $\mathbb{E}(L_i) = \sigma \cdot L_i =
+\lambda$. 
+
+In $\mcL\subset\mathbb{Z}^+$, this is the length of the shortest queue.
+
+Before we arrive at the Stackelberg game, we make use of the flexibility of the
+CRN to form a network topology based on the interconnectedness and resulting
+strategies of the eCRs. 
+
+

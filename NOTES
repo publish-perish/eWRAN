@@ -1,0 +1,43 @@
+Code-division multiple access
+-----------------------------
+
+CDMA is a spread-spectrum multiple-access technique. A spread-spectrum technique spreads the bandwidth of the data uniformly for the same transmitted power. A spreading code is a pseudo-random code that has a narrow ambiguity function, unlike other narrow pulse codes. In CDMA a locally generated code runs at a much higher rate than the data to be transmitted. Data for transmission is combined by bitwise XOR (exclusive OR) with the faster code.
+
+IDEA: Use chaotic system for spectrum spread?
+
+Each user in a CDMA system uses a different code to modulate their signal. Choosing the codes used to modulate the signal is very important in the performance of CDMA systems.[1] The best performance occurs when there is good separation between the signal of a desired user and the signals of other users. The separation of the signals is made by correlating the received signal with the locally generated code of the desired user. If the signal matches the desired user's code, then the correlation function will be high and the system can extract that signal. If the desired user's code has nothing in common with the signal, the correlation should be as close to zero as possible (thus eliminating the signal); this is referred to as cross-correlation. If the code is correlated with the signal at any time offset other than zero, the correlation should be as close to zero as possible. This is referred to as auto-correlation and is used to reject multi-path interference.
+
+Similarly, in radio CDMA, each group of users is given a shared code. Many codes occupy the same channel, but only users associated with a particular code can communicate.
+
+In general, CDMA belongs to two basic categories: synchronous (orthogonal codes) and asynchronous (pseudorandom codes).
+
+When mobile-to-base links cannot be precisely coordinated, particularly due to the mobility of the handsets, a different approach is required. Since it is not mathematically possible to create signature sequences that are both orthogonal for arbitrarily random starting points and which make full use of the code space, unique "pseudo-random" or "pseudo-noise" (PN) sequences are used in asynchronous CDMA systems.
+
+ These PN sequences are statistically uncorrelated, and the sum of a large
+ number of PN sequences results in multiple access interference (MAI) that is
+ approximated by a Gaussian noise process (following the central limit theorem
+ in statistics). Gold codes are an example of a PN suitable for this purpose, as
+ there is low correlation between the codes. If all of the users are received
+ with the same power level, then the variance (e.g., the noise power) of the MAI
+ increases in direct proportion to the number of users. In other words, unlike
+ synchronous CDMA, the signals of other users will appear as noise to the signal
+ of interest and interfere slightly with the desired signal in proportion to the number of users.
+
+IDEA: If spreading signal is done with XOR, can it be made private?
+
+Asynchronous CDMA offers a key advantage in the flexible allocation of resources i.e. allocation of PN codes to active users. In the case of CDM (synchronous CDMA), TDMA, and FDMA the number of simultaneous orthogonal codes, time slots, and frequency slots respectively are fixed, hence the capacity in terms of the number of simultaneous users is limited. There are a fixed number of orthogonal codes, time slots or frequency bands that can be allocated for CDM, TDMA, and FDMA systems, which remain underutilized due to the bursty nature of telephony and packetized data transmissions. There is no strict limit to the number of users that can be supported in an asynchronous CDMA system, only a practical limit governed by the desired bit error probability since the SIR (signal-to-interference ratio) varies inversely with the number of users. In a bursty traffic environment like mobile telephony, the advantage afforded by asynchronous CDMA is that the performance (bit error rate) is allowed to fluctuate randomly, with an average value determined by the number of users times the percentage of utilization. Suppose there are 2N users that only talk half of the time, then 2N users can be accommodated with the same average bit error probability as N users that talk all of the time. The key difference here is that the bit error probability for N users talking all of the time is constant, whereas it is a random quantity (with the same mean) for 2N users talking half of the time.
+
+In other words, asynchronous CDMA is ideally suited to a mobile network where large numbers of transmitters each generate a relatively small amount of traffic at irregular intervals
+
+IDEA: Each user contributes an initial condition to the chaotic signal (does this limit the size of the collaboration?) -> forms a unique trusted psuedo-random signal
+
+Frequency reuse is the ability to reuse the same radio channel frequency at other cell sites within a cellular system. In the FDMA and TDMA systems, frequency planning is an important consideration. The frequencies used in different cells must be planned carefully to ensure signals from different cells do not interfere with each other. In a CDMA system, the same frequency can be used in every cell, because channelization is done using the pseudo-random codes. Reusing the same frequency in every cell eliminates the need for frequency planning in a CDMA system; however, planning of the different pseudo-random sequences must be done to ensure that the received signal from one cell does not correlate with the signal from a nearby cell.
+
+Since adjacent cells use the same frequencies, CDMA systems have the ability to perform soft hand-offs. Soft hand-offs allow the mobile telephone to communicate simultaneously with two or more cells. The best signal quality is selected until the hand-off is complete. This is different from hard hand-offs utilized in other cellular systems. In a hard-hand-off situation, as the mobile telephone approaches a hand-off, signal strength may vary abruptly. In contrast, CDMA systems use the soft hand-off, which is undetectable and provides a more reliable and higher-quality signal.
+
+QUESTION: How can I use the soft hand-off to my advantage? Possibly could allow overlapping or growing collaborations?
+
+NOTE: CDMA has power control issues
+
+QUESTION: Does the algorithm need to include how the base station performs cognitive sensing?
+

@@ -44,18 +44,14 @@ research efforts are directed towards:
 \end{itemize}
 Evolutionary biology provides an example. A basic principle is that mutations are more likely 
 to succeed in a population when they improve the fitness of the organisms that carry the mutation. 
-But often, this fitness cannot be assessed in isolation; rather, it depends on what all the other 
-(nonmutant) organisms are doing and how the mutant’s behavior interacts with the nonmutants’ 
-behaviors. In such situations, reasoning about the success or failure of the mutation involves 
+We examine the fitness of queueing networks and how the mutant’s behavior interacts with the nonmutants’ behaviors. In such situations, reasoning about the success or failure of the mutation involves 
 game-theoretic definitions, and in fact very closely resembles the process of reasoning about 
 decisions made by intelligent actors. 
 
 The utilization of game theory to study the network security problems has attracted considerable 
 research and has led to valuable insight on the attackers’ behaviour and the optimal strategy for 
-the network defenders. A security game on a network 
-is usually modeled by using a graph. We are motivated by modern network advances
-to model network security problems with perspective from a game theoretic
-analysis:
+the network defenders. A security game on a network is usually modeled by using a graph. We are motivated by modern network advances
+to model network security problems with perspective from a game theoretic analysis:
 \begin{enumerate}
 	\item Game theory is a powerful tool to model the 
 interactions of decision makers with mutually conflicting / complimentary objectives.
@@ -112,8 +108,46 @@ $[2]$ "The Supermarket Game", Jiaming Xu, Bruce Hajek\\
 $[3]$ "Modeling Population Dynamics in Changing Environments", Michelle Shen\\
 $[4]$ "Self-coexistence among interference-aware IEEE 802.22 networks with enhanced air-interface", S. Sengupta, S. Brahma, M. Chatterjee, N. Sai Shankar\\
 
-\section{Proposed Topic}
+\section{Framework}
+Given strategies $s_1, s_2$, and a function $\phi$, we examine the expanded strategy space where $s_1$ stochastically dominating $s_2$ implies that $E[\phi (\cdot, s_2 )] > E[\phi (\cdot, s_1)]$. Using standard game theory notation, for cost function $C$, we define
+$\mathbb{E}[C(L_i, L_{-i})]$ as a stochastic process on a projective
+representation of the rotation group $SO(3)$. 
+Define $\r(t)$ to be the number of queues of length at least $k$ at time $t$.
+For $s_1, s_2 \in \mcS$, if $s_1,s_2 \in \mcS$, with $s_1 <_{st} s_2$, then
+$\mathbb{E}[W(L,s_1)] > \mathbb{E}[W(L,s_2)]$.
+Now, let $\phi:\mcS\times \mathbb{N} \rightarrow S$ be a stochastic process
+defining(?) $dS_t$.
+Suppose $L(\cdot)\in \mcS$ is given, the solution to
+$s_i(k) = \int_{c_i - k}^{c_i} \pi_i(c) \ dc$ gives a set of unique jumping points $0=c_0<
+c_1< \cdots < c_{L_{MAX}} = c_{MAX}$. 
+We extend our mean-field model to include this
+representation by setting $\begin{bmatrix}0 \\ k\end{bmatrix} = \begin{bmatrix}1
+\\
+k\end{bmatrix}$ at the stop time $\tau$.
+Consider a mapping $\mcS\mapsto \mcD$ that preserves the quadratic form $(t, r,
+\theta)\mapsto (\omega^2 t^2-c^2-\hat c^2)$, and the general orthogonal group $O(1,3)$.
+$\begin{bmatrix}0 \\ k\end{bmatrix} = \begin{bmatrix}1
+\\
+k\end{bmatrix}$ at the stop time $\tau$.
+Now, let $\phi:\mcS\times \mathbb{N} \rightarrow S$ be a stochastic process
+defining(?) $dS_t$.
+Let $W_t: [0, +\infty) \times \Omega \rightarrow \mcS$ be a
+one-dimensional geometric (exponential) Weiner process. We define right-continuity as 
+a \emph{stopping time} $\tau:\mcS \rightarrow [0,+\infty]$, which occurs at a random jumping point. This is the first hitting time
+for the region $\lbrace \hat c \in [0,\hat c_{MAX}] \vert c \ge c_{max}\rbrace$.
+We have the following stochastic differential equation, with stopping time
+$\tau(\cdot)$,
+$$
+    dS_t = \theta S_t dt + \phi S_t dW_t,
+$$
+with Ito drift-diffusion process,
+$$
+    \displaystyle\int_0^t \frac{dS_t}{S_t} = \theta t + \phi W_t
+$$
+A player’s preference is modeled as cost coefficients assigned to time, $c$, and a cost $\hat c$, associated with the fitness of the coalition.
 
+
+\section{Proposed Topic}
 
 In order to construct a
 viable model for our final goal, we must have (1) self-configuration, and (2) automatic neighbor
@@ -121,18 +155,33 @@ relations. We address our CRs as a finite set of actions, and formalize the game
 influence (SIG) graph. To begin, we propose a set of mixed strategies defined by a probability
 distribution over the finite set of feasible strategies, and define a basic game played by the
 cognitive nodes.
-Taking a queuing game, we have a basic set of strategies represented by a sampling of queues. This example is particularly useful in large, decentralized networks. The basic topology of the SIG graph under these rules allow for the projection of the decision process of the game into a higher-dimensional complex space. We analyze the interaction of the nodes as a topological graph, which we may then apply our statistical game theoretic approach. We do this by forming an arrangement. Given strategies $s_1, s_2$, and a function $\phi$, we examine the expanded strategy space where $s_1$ stochastically dominating $s_2$ implies that $E[\phi (\cdot, s_2 )] > E[\phi (\cdot, s_1 )]$. This space is well-publicized in marketing theory, where valuation functions are often given as right-continuous, left-limited functions. In decision theory, the von Neumann-Morgenstern utility theorem shows that, under certain axioms of rational behavior, a decision-maker faced with risky (probabilistic) outcomes of different choices will behave as if he or she is maximizing the expected value of some function defined over the potential outcomes at some specified point in the future. This function is known as the von Neumann-Morgenstern utility function. The theorem is the basis for expected utility theory.
+Taking a queuing game, we have a set of strategies represented by a
+sampling of queues, where the player's preference is defined by a mapping,
+$\phi$, from a HARA utility
+function $\mu$, to $k\in\mathbb{N}$ where $k$ is the number of queues sampled. This example is particularly useful in large, decentralized
+networks. The basic topology of the SIG graph under these rules allow for the
+projection of the decision process of the game into a higher-dimensional complex
+space. We analyze the interaction of the nodes as a topological graph, which we
+may then apply our statistical game theoretic approach. We do this by forming an
+arrangement. Given strategies $s_1, s_2 \in \mcS$, and a function $\phi$, we examine the
+expanded strategy space where $s_1$ stochastically dominating $s_2$ implies that
+$E[\phi (\cdot, s_2 )] > E[\phi (\cdot, s_1 )]$. This space is well-publicized
+in marketing theory, where valuation functions are often given as
+right-continuous, left-limited functions. Decision theory defines the von Neumann-Morgenstern utility theorem, under certain axioms of rational behavior, a decision-maker faced with risky (probabilistic) outcomes of different choices will behave as if he or she is maximizing the expected value of some function defined over the potential outcomes at some specified point in the future. 
 
-As we expand the strategy space, new topologies emerge as a result of the SIG graph, allowing for the insertion of additional properties. We make use of mean field theorem, for which the study of arrangements is well-defined for random processes.
-The decision model in the extended strategy space is modeled as an Ito drift
-diffusion process, allowing us to make use of the Poisson process and binomial
-theorem. We conjecture that the choice of arrangement and random process to be in this space results in additional immersions of the SIG graph with nice properties.
+As we expand the strategy space, new topologies emerge as a result of the SIG
+graph, allowing for the insertion of additional properties. We make use of mean
+field theorem, for which the existence of a Nash equilibrium (NE) is
+well-defined for random processes, where arrangements are mapped to queues.
+The decision model in the extended strategy space is an Ito drift
+diffusion process, allowing us to make use of the Poisson arrival process and binomial
+theorem provide the momentum of the network system. We conjecture that the choice of arrangement and random process to be in this space results in additional immersions of the SIG graph with nice properties.
 
-Continuing, we model the additive noise to determine the rate of random mutation given in the evolutionary model. As we expand the strategy space
+Continuing, we model the additive noise to determine the rate of random mutation given in the evolutionary model. 
 We conjecture that in this setting, we will be able to examine the interactions of the cognitive nodes, and model the evolution of their types. Given the goals of quality-of-service and robustness to adversary (mutant) nodes, we will be able to realistically determine the outcome of the game based on the intelligence of the nodes.
 
 In order to arrive at an advanced decision model, we first
-address three main ways to describe the choice $L_i$ , which serves to characterize the supermarket game
+address three main ways to describe the choice $L_i$, which serves to characterize the supermarket game
 as a dynamic interaction of intelligent players: (1) Choice structure, (2) Preference maximization,
 and (3) Utility maximization.
 
@@ -154,27 +203,32 @@ $\mathbb{E}[W(L,s_1)] > \mathbb{E}[W(L,s_2)]$.
 We build from the geometric form, and
 extend the cross-product $[s_1 ]_x s_2$ , which is characterized by the transition $L_i = k$ to $L_i+1 = k + 1$, forming a tensor field of similarity groups.
 We examine the skew-Hermetian assignment, and the resulting tangent vector, or four-velocity. 
-The four coordinate functions $\theta^a (\tau), a = 0, 1, 2, 3$ are real functions of a real variable $\tau$.
-Consider a mapping $\mcS\mapsto \mcD$ that preserves the quadratic form $(t, r,
+The four coordinate functions $\theta^a (\tau), a = 0, 1, 2, 3$ are real
+functions of a real variable $\tau$. The mapping $\mcS\mapsto \mcD$ preserves the quadratic form $(t, r,
 \theta)\mapsto (\omega^2 t^2-c^2-\hat c^2)$, and the general orthogonal group $O(1,3)$.
-The jump-diffusion process was constructed to have ergodic properties so that
-after flowing away from its initial condition it would generate
-samples from the posterior probability model. We have that $\phi\cdot
-\mcS\subset \mcS$ is the subset of skew-Hermetian matrices known as signed
+ It is known that every complex semisimple Lie algebra has a compact real form.
+
+We address the network of arrival processes and the resulting distributions.
+Consider a jump-diffusion processe. We proceed to describe the ergodic
+properties; (TODO- add replicator equation and noise and stop time)
+We have that $\phi\cdot \mcS\subset \mcS$ is the subset of skew-Hermetian matrices known as signed
 permutation matrices. We extend our mean-field model to include this
-representation by setting $\begin{bmatrix}0 // k\end{bmatrix} = \begin{bmatrix}1 //
-k\end{bmatrix}$ at the stop time $\tau$.
-We proceed to determine the skew-distribution. The map projection onto the complex plane is given by the Lorentz translation, which gives the displacement $L_i = k$ to $L_i+1 = k +1$ as a function of time.
-Let $\mcD$ be the space of all cadlag (”continu a droite, limites a gauches”) functions; the space of
-right-continuous functions on $[0, 1]$ with left limits.
+representation by setting $\begin{bmatrix}0 \\ k\end{bmatrix} = \begin{bmatrix}1
+\\
+k\end{bmatrix}$ at the stop time $\tau$. (TODO- explain negative binomial
+notation)
+
+We proceed to determine the skew-distribution of the closed manifold (TODO: need
+infty cones to close, !not compact yet). The map projection onto the complex plane is given by the Lorentz translation, which gives the displacement $L_i = k$ to $L_i+1 = k +1$ as a function of time.
+Let $\mcD$ be the space of all cadlag (”continu a droite, limites a gauches”)
+functions; the space of right-continuous functions on $[0, 1]$ with left limits.
 Now, let $\phi:\mcS\times \mathbb{N} \rightarrow S$ be a stochastic process
-defining(?) $dS_t$.
-Suppose $L(\cdot)\in \mcS$ is given, the solution to
+defining(?) $dS_t$. Suppose $L(\cdot)\in \mcS$ is given, the solution to
 $s_i(k) = \int_{c_i - k}^{c_i} \pi_i(c) \ dc$ gives a set of unique jumping points $0=c_0<
 c_1< \cdots < c_{L_{MAX}} = c_{MAX}$. 
 Any cadlag finite variation process $S$ has quadratic variation equal to the sum
 of the squares of the jumps $0=c_0<c_1<\cdots c_n$.
-Let $W_t: [0, +\infty) \times \Omega \rightarrow \mcS$ be a
+Let $W_t: [0, +\infty) \times \mcS \rightarrow \mcS$ be a
 one-dimensional geometric (exponential) Weiner process. We define right-continuity as 
 a \emph{stopping time} $\tau:\mcS \rightarrow [0,+\infty]$, which occurs at a random jumping point. This is the first hitting time
 for the region $\lbrace \hat c \in [0,\hat c_{MAX}] \vert c \ge c_{max}\rbrace$.
@@ -187,19 +241,19 @@ with Ito drift-diffusion process,
 $$
     \displaystyle\int_0^t \frac{dS_t}{S_t} = \theta t + \phi W_t
 $$
-A player’s preference is modeled as cost coefficients assigned to time, $c$, and a cost $\hat c$, associated with the fitness of the coalition.
-Denote the mapping $(c, \hat c) \mapsto (r, t, \phi)$ by the open ball,
+Define a player’s cost coefficients, $c$ and $\hat c$, associated with the
+fitness of the coalition, and denote the mapping $(c, \hat c) \mapsto (r(t), t, \phi)$ by the open ball,
 $$
     S = \lbrace s_i \in \mcS : \phi(s_i, s_j) < r_i, \ j\ne i \rbrace, \qquad (j
     = 1, \cdots N),
 $$
 where $\mathbb{E}[C(s_i, S_{-i}])] = r_i = \sqrt{c^2 + \hat c^2} \in [0,1]\times
-[0,1]$.
+[0,1]$ (TODO- !ACK undefined relationship $r(t)$ and $r_i$).
 We intend to show that $s_{L_1} \le_{st} s_{L_2}$ indicates that $s_{L_1}$ is second-order stochastically dominated by $s_{L_2}$, that is, 
 $$
-    \displaystyle\int_{-\infty}^s\vert s_{L_1}(t) - s_{L_2} \vert \ dt \ge 0.
+    \displaystyle\int_{-\infty}^s\vert s_{L_1}(t) - s_{L_2} \vert \ dt \ge 0,
 $$
-is the sphere of influence $S_i \in \mcS\times\mcS$ over the strategy
+defining the sphere of influence $S_i \in \mcS\times\mcS$ over the strategy
 space of player $i$, $s_i\circ\mcL = S_i \in \mcS\times\mcS$.
 
 Now, the sphere of influence (SIG) is defined to be a vertex set with an edge joining
@@ -227,7 +281,6 @@ Consider a player $i$ with associated ball $B_i$ and graph $SIG_i$. Also conside
 at the boundary, and so $i$ is at the same time in an uncertain state. The
 density matrix used here is defined to be the statistical state of a system in
 quantum mechanics, and is particularly useful in dealing with mixed states.
-
 We have an immersion in the surrounding
 dynamical complex field $\mathbb{C}^2$. The complex field encases the distributions of the
 player strategies; that is, the gradient of the distribution across the boundary
@@ -252,7 +305,7 @@ $$
 where the indices $\alpha,\beta$ run over $0, 1, 2,$ and $3,$ with $x^0=t$ the time coordinate and $(x^1,x^2,x^3)$ the space coordinates. This is simply the SIG where triangles are now hyperbolic triangles. 
 Each ball represents a distribution of possible strategies, and as subset of the
 measure space, we are able to compute its density function. 
-Now, CSIGs always have a clique factor, that is CSIG $G = \lbrace G_1,\cdots G_n\rbrace$ has a spanning subgraph whose connected components are always isomorphic to graphs in the set $\lbrace G_1,\cdots G_n\rbrace$. These connected components define the incident matrices of our dynamical network system. For example, suppose the node set $\mcX$ realizes $G$ in $\mcM$. Select a proper spanning forest $F$
+Now, CSIGs always have a clique factor. That is, CSIG $G = \lbrace G_1,\cdots G_n\rbrace$ has a spanning subgraph whose connected components are always isomorphic to graphs in the set $\lbrace G_1,\cdots G_n\rbrace$. These connected components define the incident matrices of our dynamical network system. For example, suppose the node set $\mcX$ realizes $G$ in $\mcM$. Select a proper spanning forest $F$
 of the $\mcM$-CSIG such that the sum of the lengths of the edges of $F$ is minimum, then, each connected component of $F$ must be a star.
 
 We will define the priority of each member of the subset $\lbrace\overline\mcS\rbrace$ based on this clique topology, so that each subset of strategies represents an $n$-dimensional simplex. The fitness of each strategy is associated with the type of node and its relative position in the clique. The clique members will replicate randomly according to the Ito process, with mutations occurring at a rate given by the noise process.

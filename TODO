@@ -1,0 +1,60 @@
+
+%1 TODO:\\
+1. Define the complex number transform (use stereographic projection)\\
+2. Assign values to $x,y,z$ \\
+a. $x^2+y^2=r^2$, where $r$ is the no. queues with length $\ge k$. \\
+b. levi-civita symbols (can have skew-symmetric matrix with spinors)\\
+3. get complex field with Lie topology
+4. get complex euclidean manifold
+5. examine uncertainties vs. replicator model
+It follows that $\phi(\cdot) \mapsto \mathbb{C}$, defined by a bijection 
+from ball $S_i$ to an angle $\theta$ on the complex plane.
+
+
+. show fitness matrix
+. show cost function is convex
+. show that step function maps to complex plane theta
+. define total variation
+. define metric
+. define tensors -> flow?
+. show mapping from theta to inner product space (surface)
+. get n-sphere
+. map fitness to skew matrix on surface
+. get functional derivative
+. show point at infty (cadlag) -> submersion
+
+
+%2 \textbf{Proof:} 
+Let $c_1 < c_2 \cdots < c_n$ be the costs associated with eCRs $\brace 1,\cdots,
+n\rbrace$ in queue $k$. Fix time $t$ and let $\mu(\cdot)$ be defined as
+$\max_{s_i\in Q}$ The inverse $\frac{1}{c_i} \approx 
+\theta\mathbb{P}(\mcS)$. % UPPER BOUND
+OUTLINE : (1) $c_k$ is the CDF of the $\mathbb{C}$ projection\\
+(2) Per (CITE) we only need $\hat c$ to be cadlag, and both tails on the\\
+$x$-axis (CAN WE CREATE THE SYMMETRY HERE?, NEED DYNAMICAL SYSTEM MODEL
+($\phi$)\\
+(3) Examine the convexity, concavity of the $\mcL$-forms (L-style junctions)!
+Line can be obscured by overlapping objects, i.e. the overlapping radio range.
+%----------------------%
+\\ 
+
+
+We introduce a transform $\gamma: \mcS \rightarrow \mcS$ such that,
+$\gamma: s_i(\mcL) \rightarrow [0,1]^2$ such that,
+$$
+    \gamma(s_i \in \mcS) = \gamma\bigg(\displaystyle\sum_{s_1}^{s_i} \pi_{L_i} \bigg)-
+    \gamma\bigg(\displaystyle\sum_{s_1}^{s_{i-1}}\pi_{L_i}\bigg) = 1,
+$$
+and extend the arrangement $s_1<s_2<\cdots s_N$ to the trihedral plane. 
+Fix $s_{-i}\in \mcS$, and let the expected \emph{marginal value} of $L_i$ be,
+$$
+    V(L_i,s_{-i}) = \displaystyle\sum_{L_i\in s_{-i}\in \mcS}\mathbb{E}[C(L_i, L_{-i})
+$$
+Let $\theta$ be a step-function such that, for cost $c, \hat c$, 
+$$
+    \theta_i = \arctan\bigg(\frac{c}{\hat c}\bigg),
+$$
+then,
+We show that $V(\cdot)$ forms a convex kernel with a left limit.
+
+
