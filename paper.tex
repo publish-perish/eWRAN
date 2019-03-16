@@ -8,6 +8,8 @@
 \newcommand{\mcM}{\mathcal{M}}
 \newcommand{\mcP}{\mathcal{P}}
 \newcommand{\mcX}{\mathcal{X}}
+\newcommand{\mcK}{\mathcal{K}}
+\newcommand{\mcG}{\mathcal{G}}
 \newcommand{\mcC}{\mathcal{C}}
 \newcommand{\mcS}{\mathcal{S}}
 \newcommand{\mcD}{\mathcal{D}}
@@ -23,335 +25,162 @@
 
 \begin{document}
 
-\section{Introduction}
+\section{Proposed Topic}
 
-Game-theoretic ideas arise in many contexts. Often these settings are not called games, but they 
-can be analyzed with the same tools. A decision-maker’s outcome depends on the decisions made by others. This 
-introduces a strategic element that game theory is designed to analyze. However, game-theoretic 
-ideas are also relevant to settings where no one is overtly making decisions. We
-examine the behavior of agile and heterogenous nodes in a network environment, and model the
-evolution of the player type under different network conditions. 
-Network security is a primary concern in open, 
-dynamic and heterogeneous networks such as Internet and wireless mobile networks, 
-which are prone to security risks, which have a detrimental effects on network performance. In this context,
-research efforts are directed towards:
+In order to construct a
+viable model of a game, we must have (1) self-configuration, and (2) automatic neighbor
+relations. We address our players as a finite set of actions, and attempt to formalize the game play as sphere-of-
+influence (SIG) graph. To begin, we propose a set of mixed strategies defined by a probability
+distribution over the finite set of feasible strategies, and define a basic game
+played by intelligent players.
+We make use of mean field theorem to prove the existence of a dense strategy
+space, and define a decision model in the
+extended (compacted) strategy space determined by a drift diffusion process.
+
+Given a stochastic arrival process, we define a subset of the field of
+right-continuous, left-limited \emph{cadlag} 
+functions, and show there exists a mapping of player types to a time-dependent
+arrangement, where we may then apply our statistical game theoretic approach.
+We conjecture that the choice of arrangement and random process results in a
+proximity/incidence graph with nice properties.
+
+
+\section{Proposed Theorem}
+
+Let $\pi$ be a normalizing function acting on an angle $\theta$. 
+The mapping $\mathbb{N} \mapsto \mcD\times \mcS$ exists if and only if there is
+the product space $\lbrace \pi(k) \mapsto r(\tau)\rbrace$, where $k=1$ defines
+the mapping 
+$$
+    \theta(\cdot, k) \mapsto \mcP \times \mcD.
+$$
+$\mcD$ is the space of \emph{cadlag} functions restricted to
+$\mathbb{A}^\mathbb{R} \times [0,1]^\mathbb{R}$, which we will denote $\mcK$, 
+and $\mcP$ is the projective space of the
+player's strategy distribution $\mcS$. We define right-continuity as 
+a \emph{stopping time} $\tau:\mcS \rightarrow [0,+\infty]$.
+
+Let $\mcI$ be an arrangement on $\mcK$ where
+$\theta (s_1, r(t)) > \theta (s_1, r(t+1))$ implies that $\pi(k) < \pi
+(k+1)$ for all $t\in\tau$.
+Then, fixing $t\in \tau$, let $\theta' \ne \theta$ be given by 
+$$
+    \theta' = \theta \cdot \displaystyle\sqrt{\frac{1+\beta^2}{1-\beta^2}},
+$$
+where $\beta = \tan\theta$. 
+
+We claim that there exists a geodesic such that there a
+mapping from the origin, $0_{\mcS\times\mcS}$, is defined by the ball
+$$
+    B(\tau, \cdot) = \lbrace \lbrack s_i, s_{-i}\rbrack : i \in \mcI \subset
+    \mcK\times \tau \rbrace.
+$$
+We have a bijection from $\pi(\mcK)$ to $r(\tau)$ and we have that
+$B_{s_{-i}}(\tau) < \pi(\mcK)$ reveals a sub-algebra extending the strategy space
+in the real variable $\tau$. 
+
+Now, given a function $\phi$, we examine the
+extended strategy space where $s_1$ stochastically dominating $s_2$ implies that
+$\mathbb{E}[\phi (\cdot, s_2 )] > \mathbb{E}[\phi (\cdot, s_1 )]$. Suppose
+$\phi^{-1}$ preserves the quadratic form $(t^2-s^2) \mapsto (t, r, \theta)$, so
+that
+$$
+    \displaystyle \int_t^{t+1} \phi^{-1}(\theta(\mcK)) dt = \theta(\cdot,
+    k+1)-\theta(\cdot,k).
+$$
+
+The players arrive to the game at a rate determined by arrival process $\phi(\tau, \cdot)$. 
+$$
+    d\mcS_t = \theta(\cdot, t) \phi(\mcS_t) dt + \phi_t(\mcS_t) dW_t,
+$$
+where $W_t: [0, +\infty) \times \mcS \rightarrow \mcS$ is a one-dimensional
+noise process. 
+As any cadlag finite variation process has quadratic variation equal to the sum
+of the squares of the jumps $0=s_0<s_1<\cdots s_n$, the solution to
+$$
+    s_i(\tau) = \int_{\theta_i(s_i, t)}^{\theta_i(s_i,t+1)} \pi(\tau) \ d\tau
+$$ 
+for $t \in \tau$ gives a set of unique jumping points $0=s_0<s_1< \cdots < s_{\overline \mcK} = s_{MAX}$. 
+Let each player's stop time $\tau$ occur at a random jumping point within their
+strategy space, thereby fixing $\overline{\mcK}$ for that player.
+
+We consider a ball $B$, where a nonzero flux at the boundary represents an
+uncertainty state.
+Each ball $B$ represents a distribution of possible strategies, and as subset of the
+measure space we are able to compute its density function. 
+Define the density operator $\rho$ on $\mcS\times \mcS$ as
+$$
+    \rho = \displaystyle\sum \vert s_i\rangle\langle s_{-i}\vert
+$$
+where $\vert s_i\rangle\langle s_{-i}\vert$ is the outer product. The expectation
+value of a state $[s]$ is given by $\langle [s] \rangle = \text{tr}{\rho [s]}$,
+The density matrix used here is defined to be the statistical state of a system in
+quantum mechanics, and is particularly useful in dealing with mixed states.
+For a random measure on $(\mcS \times \mcS, \mcD)$, i.e. the $\sigma$-algebra of the arrival process, we
+define a graph $\mcG$ as the set subsets of $\mcS\times\mcS$ of fully connected nodes.
+We claim that there exists an additional, induced metric, on $\mcG$.
+The closed sphere of influence graph covers the intersections
+of the closed balls $\lbrace\overline{B}\rbrace \subset \mcS\times \mcS$, where
+$$
+    \overline{B}= \lbrace B_i \in \mcS : \min\rho(s_i, s_{-i}) \le r(\tau) \rbrace.
+$$
+We finally claim to have an immersion in the surrounding
+dynamical complex field $\mathbb{C}^{\tau\times\tau}$. The complex field encases the distributions of the
+player strategies; that is, the gradient of the distribution across the boundary
+of $\mcG$ determines the orientation of exterior.
+
+TODO: FINISH!
+We proceed to determine the skew-distribution of the closed manifold. 
+We examine the skew-Hermetian assignment, and the resulting tangent vector, or four-velocity. 
+The four coordinate functions $\theta^c (\tau), c = 0, 1, 2, 3$ are real
+functions of a real variable $\tau$. 
+We have that $\phi\cdot \mcS\subset \mcS$ is the subset of skew-Hermetian matrices known as signed
+permutation matrices. We extend our mean-field model to include this
+representation by setting $\begin{bmatrix}0 \\ k\end{bmatrix} = \begin{bmatrix}1
+\\ k\end{bmatrix}$ at the stop time $\tau$. 
+
+Define the the player's initial utility
+function as a hyperbolic absolute risk aversion (HARA), and so must adhere to,
+for utility $\mu$,
+$$
+    \displaystyle\frac{\mu''(\langle s_i,s_{-i}\rangle)}{\mu'(\langle s_i,
+    s_{-i})}.
+$$
+
+\section{Research Plan}
+
 \begin{itemize}
-    \item Characterizing the network model, incorporating constraints and
-    underlying structure from well established quantative models.
-	\item Characterizing malicious attacks incorporating the specific features of modern networks.
-	\item Designing and refining (non)cooperative mechanisms.
-	\item Designing and refining defense mechanisms.
+	\item Step 1: Formulate the relevant graph models using appropriate abstraction.
+	\item Step 2: Establish the existence/uniqueness of differential tensor/flow .
+	\item Step 3: Implement a python/ruby module/scaffolding to model to aid in prototyping
+    conditions to define (possible) deterministic systems. 
+	\item Step 4: Based on the analytical results, implement various systems' tensorflow.
 \end{itemize}
-Evolutionary biology provides an example. A basic principle is that mutations are more likely 
-to succeed in a population when they improve the fitness of the organisms that carry the mutation. 
-We examine the fitness of queueing networks and how the mutant’s behavior interacts with the nonmutants’ behaviors. In such situations, reasoning about the success or failure of the mutation involves 
-game-theoretic definitions, and in fact very closely resembles the process of reasoning about 
-decisions made by intelligent actors. 
 
-The utilization of game theory to study the network security problems has attracted considerable 
-research and has led to valuable insight on the attackers’ behaviour and the optimal strategy for 
-the network defenders. A security game on a network is usually modeled by using a graph. We are motivated by modern network advances
-to model network security problems with perspective from a game theoretic analysis:
-\begin{enumerate}
-	\item Game theory is a powerful tool to model the 
-interactions of decision makers with mutually conflicting / complimentary objectives.
- e.g., the interaction between the attackers and the network defenders /
- heterogenous utility functions and competing / contended nodes.
-	\item Game theory (particularly non-cooperative game theory) can model the
-    features or constraints of modern networks such as lack of coordination,
-    network feedback and topology.
-\end{enumerate}
-
-Game theory can serve as a validation tool to evaluate the proposed solutions.
-However, most of them are focused on the characterization of the Nash equilibrium (NE) of the formulated security game and the defenders’ strategy at the NE, few of them performs a systematic study on the
-complexity (in terms of time and space) of how to solve the game and reach the
-NE from a foundational game theory perspective. The proposed study aims at
-filling this gap by establishing necessary theoretical foundations under a game algorithmic framework.
-
-In this work, we propose a mechanism to direct the distribution of contended cells that 
-will reveal the priority of a secondary cognitive radio user (CR). Additionally, we model 
-a learning process unique to the IEEE 802.22 network 
-(WRAN). We model a cognitive radio network (CRN) as a game among CRs, and maximize the
- utility of a set of overlapping base stations (BS). According to the 802.22 draft, the 
-self-coexistence quiet periods are used for the specific purpose to detect overlapping 
-WRANs, and are designed to support dynamic resource sharing between the overlapping base
- stations (BSs), targeting fair and efficient scheduling. We build our formulation on 
-the specific case where the BS cells must resort to adaptive on demand channel allocation.
- We examine a worst-case scenario, maximizing the exploitation of uncertainties inherent 
-to a spectrum sensing period. Our focus is on the behavior of the cognitive radio 
-during the coexistence window, and their use of the coexistence beacon protocol. 
-We provide an alternative iteration of the process so that determines channels 
-that can be acquired to satisfy the QoS requirements of the given workloads. We 
-determine that intra-channel sharing is optimized by the cooperation, and the resulting 
-inter-system demand alleviates the channel contention processes with coexisting CRN. 
-As network use in sparse areas becomes more widespread, it is likely that a 
-central dispatcher will not be able to provide the desired QoS across the distributed 
-CRN.We consider the division of contended frames during the contention beacon protocol. 
-We propose priority network policy, determined by a queuing network for frame 
-allocation. The CRs will choose the queue with the best priority match. We focus on 
-three main issues in WRAN planning: (1) Spectrum allocation. A network at equilibrium 
-should maximize the throughput of the CRN through intelligent use of base stations, 
-(2) Quality of service (QoS). We consider QoS to be a guarantee of minimum rate of 
-service while adhering to a priority protocol. (3) Truthfulness in spectrum 
-priority claims. We show that we are able to uphold the desired property of 
-self-coexistence, and model defense strategy as a Stackelberg game between the CRs and 
-an adversary type CR node with arrival rate and strategy as a directed mutations of 
-player type coefficients. Our goal is to maintain network coherence with the desired 
-QoS converging to a dynamic, stable equilibrium.
-
-\section{Related work}
-
-(Under construction...)
+\section{References}
 
 $[1]$ "Sphere of Influence Graphs in General Metric Spaces", T.S. Michael, T. Quint\\
 $[2]$ "The Supermarket Game", Jiaming Xu, Bruce Hajek\\
 $[3]$ "Modeling Population Dynamics in Changing Environments", Michelle Shen\\
 $[4]$ "Self-coexistence among interference-aware IEEE 802.22 networks with enhanced air-interface", S. Sengupta, S. Brahma, M. Chatterjee, N. Sai Shankar\\
 
-\section{Framework}
-Given strategies $s_1, s_2$, and a function $\phi$, we examine the expanded strategy space where $s_1$ stochastically dominating $s_2$ implies that $E[\phi (\cdot, s_2 )] > E[\phi (\cdot, s_1)]$. Using standard game theory notation, for cost function $C$, we define
-$\mathbb{E}[C(L_i, L_{-i})]$ as a stochastic process on a projective
-representation of the rotation group $SO(3)$. 
-Define $\r(t)$ to be the number of queues of length at least $k$ at time $t$.
-For $s_1, s_2 \in \mcS$, if $s_1,s_2 \in \mcS$, with $s_1 <_{st} s_2$, then
-$\mathbb{E}[W(L,s_1)] > \mathbb{E}[W(L,s_2)]$.
-Now, let $\phi:\mcS\times \mathbb{N} \rightarrow S$ be a stochastic process
-defining(?) $dS_t$.
-Suppose $L(\cdot)\in \mcS$ is given, the solution to
-$s_i(k) = \int_{c_i - k}^{c_i} \pi_i(c) \ dc$ gives a set of unique jumping points $0=c_0<
-c_1< \cdots < c_{L_{MAX}} = c_{MAX}$. 
-We extend our mean-field model to include this
-representation by setting $\begin{bmatrix}0 \\ k\end{bmatrix} = \begin{bmatrix}1
-\\
-k\end{bmatrix}$ at the stop time $\tau$.
-Consider a mapping $\mcS\mapsto \mcD$ that preserves the quadratic form $(t, r,
-\theta)\mapsto (\omega^2 t^2-c^2-\hat c^2)$, and the general orthogonal group $O(1,3)$.
-$\begin{bmatrix}0 \\ k\end{bmatrix} = \begin{bmatrix}1
-\\
-k\end{bmatrix}$ at the stop time $\tau$.
-Now, let $\phi:\mcS\times \mathbb{N} \rightarrow S$ be a stochastic process
-defining(?) $dS_t$.
-Let $W_t: [0, +\infty) \times \Omega \rightarrow \mcS$ be a
-one-dimensional geometric (exponential) Weiner process. We define right-continuity as 
-a \emph{stopping time} $\tau:\mcS \rightarrow [0,+\infty]$, which occurs at a random jumping point. This is the first hitting time
-for the region $\lbrace \hat c \in [0,\hat c_{MAX}] \vert c \ge c_{max}\rbrace$.
-We have the following stochastic differential equation, with stopping time
-$\tau(\cdot)$,
-$$
-    dS_t = \theta S_t dt + \phi S_t dW_t,
-$$
-with Ito drift-diffusion process,
-$$
-    \displaystyle\int_0^t \frac{dS_t}{S_t} = \theta t + \phi W_t
-$$
-A player’s preference is modeled as cost coefficients assigned to time, $c$, and a cost $\hat c$, associated with the fitness of the coalition.
+\section{Literature}
 
+In addition to related work, the sourced literature must include historical
+papers to give perspective and formalization, and determine the foundation of
+the proposed theory.\\
+$[1]$ M. E. Bratman. Intention, Plans, and Practical Reason. CSLI Publications, Stanford University,
+1987.\\
+$[2]$ I. Gilboa and E. Zemel. Nash and correlated equilibria: Some complexity considerations. Games
+and Economic Behavior, 1:80-93, 1989.\\
+$[3]$ E. Kalai. Games, computers, and O.R. In ACM/SIAM Symposium on Discrete Algorithms, 1995.\\
+$[4]$ Noam Nisan and Amir Ronen. Algorithmic mechanism design. In Proc. 31st ACM Symp. on
+Theory of Computing, pages 129-140, 1999.\\
+$[5]$ C. H. Papadimitriou. On the complexity of the parity argument and other inefficient proofs of
+existence. Journal of Computer and System Sciences, 48(3):498-532, 1994.\\
+$[6]$ J. von Neumann and O. Morgenstern. Theory of Games and Economic Behavior, Second Edition.
+Princeton University Press, second edition, 1947.\\
 
-\section{Proposed Topic}
-
-In order to construct a
-viable model for our final goal, we must have (1) self-configuration, and (2) automatic neighbor
-relations. We address our CRs as a finite set of actions, and formalize the game play as sphere-of-
-influence (SIG) graph. To begin, we propose a set of mixed strategies defined by a probability
-distribution over the finite set of feasible strategies, and define a basic game played by the
-cognitive nodes.
-Taking a queuing game, we have a set of strategies represented by a
-sampling of queues, where the player's preference is defined by a mapping,
-$\phi$, from a HARA utility
-function $\mu$, to $k\in\mathbb{N}$ where $k$ is the number of queues sampled. This example is particularly useful in large, decentralized
-networks. The basic topology of the SIG graph under these rules allow for the
-projection of the decision process of the game into a higher-dimensional complex
-space. We analyze the interaction of the nodes as a topological graph, which we
-may then apply our statistical game theoretic approach. We do this by forming an
-arrangement. Given strategies $s_1, s_2 \in \mcS$, and a function $\phi$, we examine the
-expanded strategy space where $s_1$ stochastically dominating $s_2$ implies that
-$E[\phi (\cdot, s_2 )] > E[\phi (\cdot, s_1 )]$. This space is well-publicized
-in marketing theory, where valuation functions are often given as
-right-continuous, left-limited functions. Decision theory defines the von Neumann-Morgenstern utility theorem, under certain axioms of rational behavior, a decision-maker faced with risky (probabilistic) outcomes of different choices will behave as if he or she is maximizing the expected value of some function defined over the potential outcomes at some specified point in the future. 
-
-As we expand the strategy space, new topologies emerge as a result of the SIG
-graph, allowing for the insertion of additional properties. We make use of mean
-field theorem, for which the existence of a Nash equilibrium (NE) is
-well-defined for random processes, where arrangements are mapped to queues.
-The decision model in the extended strategy space is an Ito drift
-diffusion process, allowing us to make use of the Poisson arrival process and binomial
-theorem provide the momentum of the network system. We conjecture that the choice of arrangement and random process to be in this space results in additional immersions of the SIG graph with nice properties.
-
-Continuing, we model the additive noise to determine the rate of random mutation given in the evolutionary model. 
-We conjecture that in this setting, we will be able to examine the interactions of the cognitive nodes, and model the evolution of their types. Given the goals of quality-of-service and robustness to adversary (mutant) nodes, we will be able to realistically determine the outcome of the game based on the intelligence of the nodes.
-
-In order to arrive at an advanced decision model, we first
-address three main ways to describe the choice $L_i$, which serves to characterize the supermarket game
-as a dynamic interaction of intelligent players: (1) Choice structure, (2) Preference maximization,
-and (3) Utility maximization.
-
-We define each queue of of eCRs as a coalition
-within the CRN network including one or more BS, where the decision is based on the expected
-probability distribution of the mixed strategies the eCRs. We model the arrival
-rate of the eCRs $i$ as a Poisson binomial distribution, bounded above by $\lambda$.
-
-\subsection{Case Study I:}
-For strategy space $S$,
-let $L_i$ be the number of subsets of $\mcS$ that $i$ chooses to sample.
-Using standard game theory notation, for cost function $C$, we define
-$\mathbb{E}[C(L_i, L_{-i})]$ as a stochastic process on a projective
-representation of the rotation group $SO(3)$. 
-Define $\r(t)$ to be the number of queues of length at least $k$ at time $t$.
-For $s_1, s_2 \in \mcS$, if $s_1,s_2 \in \mcS$, with $s_1 <_{st} s_2$, then
-$\mathbb{E}[W(L,s_1)] > \mathbb{E}[W(L,s_2)]$.
-
-We build from the geometric form, and
-extend the cross-product $[s_1 ]_x s_2$ , which is characterized by the transition $L_i = k$ to $L_i+1 = k + 1$, forming a tensor field of similarity groups.
-We examine the skew-Hermetian assignment, and the resulting tangent vector, or four-velocity. 
-The four coordinate functions $\theta^a (\tau), a = 0, 1, 2, 3$ are real
-functions of a real variable $\tau$. The mapping $\mcS\mapsto \mcD$ preserves the quadratic form $(t, r,
-\theta)\mapsto (\omega^2 t^2-c^2-\hat c^2)$, and the general orthogonal group $O(1,3)$.
- It is known that every complex semisimple Lie algebra has a compact real form.
-
-We address the network of arrival processes and the resulting distributions.
-Consider a jump-diffusion processe. We proceed to describe the ergodic
-properties; (TODO- add replicator equation and noise and stop time)
-We have that $\phi\cdot \mcS\subset \mcS$ is the subset of skew-Hermetian matrices known as signed
-permutation matrices. We extend our mean-field model to include this
-representation by setting $\begin{bmatrix}0 \\ k\end{bmatrix} = \begin{bmatrix}1
-\\
-k\end{bmatrix}$ at the stop time $\tau$. (TODO- explain negative binomial
-notation)
-
-We proceed to determine the skew-distribution of the closed manifold (TODO: need
-infty cones to close, !not compact yet). The map projection onto the complex plane is given by the Lorentz translation, which gives the displacement $L_i = k$ to $L_i+1 = k +1$ as a function of time.
-Let $\mcD$ be the space of all cadlag (”continu a droite, limites a gauches”)
-functions; the space of right-continuous functions on $[0, 1]$ with left limits.
-Now, let $\phi:\mcS\times \mathbb{N} \rightarrow S$ be a stochastic process
-defining(?) $dS_t$. Suppose $L(\cdot)\in \mcS$ is given, the solution to
-$s_i(k) = \int_{c_i - k}^{c_i} \pi_i(c) \ dc$ gives a set of unique jumping points $0=c_0<
-c_1< \cdots < c_{L_{MAX}} = c_{MAX}$. 
-Any cadlag finite variation process $S$ has quadratic variation equal to the sum
-of the squares of the jumps $0=c_0<c_1<\cdots c_n$.
-Let $W_t: [0, +\infty) \times \mcS \rightarrow \mcS$ be a
-one-dimensional geometric (exponential) Weiner process. We define right-continuity as 
-a \emph{stopping time} $\tau:\mcS \rightarrow [0,+\infty]$, which occurs at a random jumping point. This is the first hitting time
-for the region $\lbrace \hat c \in [0,\hat c_{MAX}] \vert c \ge c_{max}\rbrace$.
-We have the following stochastic differential equation, with stopping time
-$\tau(\cdot)$,
-$$
-    dS_t = \theta S_t dt + \phi S_t dW_t,
-$$
-with Ito drift-diffusion process,
-$$
-    \displaystyle\int_0^t \frac{dS_t}{S_t} = \theta t + \phi W_t
-$$
-Define a player’s cost coefficients, $c$ and $\hat c$, associated with the
-fitness of the coalition, and denote the mapping $(c, \hat c) \mapsto (r(t), t, \phi)$ by the open ball,
-$$
-    S = \lbrace s_i \in \mcS : \phi(s_i, s_j) < r_i, \ j\ne i \rbrace, \qquad (j
-    = 1, \cdots N),
-$$
-where $\mathbb{E}[C(s_i, S_{-i}])] = r_i = \sqrt{c^2 + \hat c^2} \in [0,1]\times
-[0,1]$ (TODO- !ACK undefined relationship $r(t)$ and $r_i$).
-We intend to show that $s_{L_1} \le_{st} s_{L_2}$ indicates that $s_{L_1}$ is second-order stochastically dominated by $s_{L_2}$, that is, 
-$$
-    \displaystyle\int_{-\infty}^s\vert s_{L_1}(t) - s_{L_2} \vert \ dt \ge 0,
-$$
-defining the sphere of influence $S_i \in \mcS\times\mcS$ over the strategy
-space of player $i$, $s_i\circ\mcL = S_i \in \mcS\times\mcS$.
-
-Now, the sphere of influence (SIG) is defined to be a vertex set with an edge joining
-a pair of distinct vertices provided the corresponding spheres of influence intersect. This graph was introduced by Toussaint to model computer vision and pattern recognition problems in the
-Euclidean plane, and is simultaneously a proximity graph and an intersection graph.
-
-Define the the player's initial utility
-function as a hyperbolic absolute risk aversion (HARA), and so must adhere to,
-for utility $\mu$,
-$$
-    \displaystyle\frac{\mu''(C(L_i,L_{-i}))}{\mu'(C(L_i,L_{-i}))}.
-$$
-For a random measure on $(\mcS \times \mcS, \mcD)$, the $\sigma$-algebra of the
-Poisson arrival process, we have that a NE exists in the queuing network, where we define the SIG as the set subsets of $\mcS\times\mcS$ of fully connected nodes.
-Each ball $\mcS_i$ represents a distribution of possible strategies, and as subset of the
-measure space we are able to compute its density function. 
-Define the density operator $\rho$ on $\mcS\times \mcS$ as
-$$
-    \rho = \displaystyle\sum p_i\vert s_{L_i}\rangle\langle s_{L_i}\vert
-$$
-where $\vert s_i\rangle\langle s_i\vert$ is the outer product. The expectation
-value of a state $[s]$ is given by $\langle [s] \rangle = \text{tr}{\rho [s]}$,
-
-Consider a player $i$ with associated ball $B_i$ and graph $SIG_i$. Also consider that the ball $S_i$ has nonzero flux
-at the boundary, and so $i$ is at the same time in an uncertain state. The
-density matrix used here is defined to be the statistical state of a system in
-quantum mechanics, and is particularly useful in dealing with mixed states.
-We have an immersion in the surrounding
-dynamical complex field $\mathbb{C}^2$. The complex field encases the distributions of the
-player strategies; that is, the gradient of the distribution across the boundary
-determines the orientation of exterior.
-We claim that there exists an additional, induced metric, on the
-SIG. The the closed sphere of influence graph (CSIG) covers the intersections
-of the closed balls $\lbrace\overline{\mcS}\rbrace \subset \mcS\times \mcS$, where
-$$
-    \overline{S}_i= \lbrace S \in \mcS : \min\rho(S_i, S_{-i}) \le r_i\rbrace.
-$$
-Forming the CSIG,
-we endow the resulting strategy space with the Minkowski metric $\eta$.
-Minkowski space $\mcM$ is not endowed with a Euclidean geometry, and not with any of the generalized Riemannian geometries with intrinsic curvature. The reason is the indefiniteness of the Minkowski metric. Minkowski space is not a metric space and not a Riemannian manifold with a Riemannian metric, Minkowski space contains submanifolds endowed with a Riemannian metric yielding hyperbolic geometry. The Minkowski metric, also called the Minkowski tensor or pseudo-Riemannian metric, is a tensor $\eta_{\alpha\beta}$ whose elements are defined by the matrix
-$$
-	(\eta)_\alpha\beta = \begin{bmatrix}
-		-1 & 0 & 0 & 0 \\
-		0 & 1 & 0 & 0 \\
-		0 & 0 & 1 & 0 \\
-		0 & 0 & 0 & 1 \\
-	\end{bmatrix},
-$$
-where the indices $\alpha,\beta$ run over $0, 1, 2,$ and $3,$ with $x^0=t$ the time coordinate and $(x^1,x^2,x^3)$ the space coordinates. This is simply the SIG where triangles are now hyperbolic triangles. 
-Each ball represents a distribution of possible strategies, and as subset of the
-measure space, we are able to compute its density function. 
-Now, CSIGs always have a clique factor. That is, CSIG $G = \lbrace G_1,\cdots G_n\rbrace$ has a spanning subgraph whose connected components are always isomorphic to graphs in the set $\lbrace G_1,\cdots G_n\rbrace$. These connected components define the incident matrices of our dynamical network system. For example, suppose the node set $\mcX$ realizes $G$ in $\mcM$. Select a proper spanning forest $F$
-of the $\mcM$-CSIG such that the sum of the lengths of the edges of $F$ is minimum, then, each connected component of $F$ must be a star.
-
-We will define the priority of each member of the subset $\lbrace\overline\mcS\rbrace$ based on this clique topology, so that each subset of strategies represents an $n$-dimensional simplex. The fitness of each strategy is associated with the type of node and its relative position in the clique. The clique members will replicate randomly according to the Ito process, with mutations occurring at a rate given by the noise process.
-We define a diffusion process using the replicator equation, and determine the
-fitness function as the pair interaction between players, following the replicator dynamics model for a haploid species. 
-Thus, the fitness of a player is determined by the result of pair interactions,
-and can be represented by the index $(i,j)^n$ in the
-resulting $2^n$ matrix. Consider,
-$$
-    \theta(L_i,L_{-i}) = \displaystyle\sum_{j\in\L_{-i}}
-    (1-L_i)(1-L_j)\theta)_{L_{-i}} + L_i L_j \theta_{i}.
-$$
-Let the private preferences of a player be defined by $\theta \in [0,1]^{L_i}$,
-$$
-    \theta(s_i, s_{-i}) = \displaystyle\sum_{L_i \in s_i} \theta_i(L_i, L_{-i})\theta_i.
-$$
-As our group is a matrix \emph{Lie} group, and also a finite-dimensional
-smooth manifold, and so we have
-that $\mu(S_i, S_{-i}) \mapsto s_i^{-1}s_{-i}$ is a smooth mapping of the
-product manifold  $\mcS\times\mcS$ onto $\mcS$.
-
-The utility function is described by the geodetic lines of the dominant strategy $S_i$.
-{\lemma{The Enveloping Algebra}\\
-We extend the arrangement $s_1<s_2<\cdots s_N$ to the trihedral plane. Fix
-$s_{-i}\in \mcS$, and let the \emph{marginal value} of $L_i$ be,
-$$
-    V(L_i,s_{-i}) = 
-$$
-if and only if there exists a strategy vector $[s]$, and a function $\phi$ such
-that $\phi(s_i) =
-C((-\infty,s_i]), \ i = 1,2,\cdots, N$ and $\phi(s_1) <
-\phi(s_2) < \cdots < \phi(s_N)$. The union of these sets form an
-algebra $[\alpha s] \subset \mcS\times\mcS$.
-}\\
-\textbf{Proof:} 
-Let $c_1 < c_2 \cdots < c_n$ be the costs associated with eCRs $\brace 1,\cdots,
-n\rbrace$ in queue $k$. Fix time $t$ and let $\phi(\cdot)$ be defined as
-$\max_{s_i\in Q}$ The inverse $\frac{1}{c_i} \approx 
-\theta\mathbb{P(\mcS)}$.
-OUTLINE : (1) $\alpha_k$ is the CDF of 
-$$ 
-    (s_i, s_{-i}) = \displaystyle\sum_{L_i \in [s_{-i}]_\times}
-    \int_{c_{MIN}}^{c_{MAX}} V(L_i-1, s_{-i}),
-$$
-which we may interpret as the cumulative distribution function (CDF) across the
-sample space $s_{\mcL} =\mcS\times \mcS$.
 
 
 \end{document}
