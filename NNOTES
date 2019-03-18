@@ -1,0 +1,34 @@
+Negative binomial stitching needs a pipi trace
+
+Use the mathematical description of parallelism
+
+2 pi delta K le delta S
+
+2 pi (tr rho K - tr rho S|_v) le delta S
+
+Note: tr is pure imaginary 
+
+subgroup of the cadlags is a homeomorphy to the 2 tau^K 
+-> the subspace topology is simply connected
+
+-> [s] is a Lie algebra -> S times S is a Lie group
+
+by Schur's lemma an intertwining map
+phi mapsto S times S, is either 0, isomorphism
+
+ergot, if s is in the null space of the ball, then there exists an identity
+operator s.t. pi(kappa(s) mapsto [s]
+
+
+Lie operator := []
+
+
+A homeomorphism is simultaneously an open mapping and a closed mapping; that is, it maps open sets to open sets and closed sets to closed sets
+
+ergot, 
+
+
+
+The Newlander–Nirenberg theorem shows that an almost complex structure is actually a complex structure precisely when these subbundles are involutive, i.e., closed under the Lie bracket of vector fields, and such an almost complex structure is called integrable
+
+

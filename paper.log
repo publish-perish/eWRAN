@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99998 (TeX Live 2017/Debian) (preloaded format=xelatex 2018.10.24)  15 MAR 2019 12:59
+This is XeTeX, Version 3.14159265-2.6-0.99998 (TeX Live 2017/Debian) (preloaded format=xelatex 2018.10.24)  17 MAR 2019 16:48
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -216,12 +216,12 @@ File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
 ) [1
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 162--166
+Underfull \hbox (badness 10000) in paragraph at lines 176--180
 
  []
 
 [2]
-Underfull \hbox (badness 10000) in paragraph at lines 169--183
+Underfull \hbox (badness 10000) in paragraph at lines 183--197
 
  []
 
@@ -229,7 +229,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 169--183
 Here is how much of TeX's memory you used:
  1796 strings out of 494988
  22447 string characters out of 6178637
- 91902 words of memory out of 5000000
+ 92902 words of memory out of 5000000
  5639 multiletter control sequences out of 15000+600000
  5882 words of font info for 31 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191

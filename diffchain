@@ -1,0 +1,4 @@
+More generally, an m-form is an oriented density that can be integrated over an m-dimensional oriented manifold. (For example, a 1-form can be integrated over an oriented curve, a 2-form can be integrated over an oriented surface, etc.) If M is an oriented m-dimensional manifold, and M′ is the same manifold with opposed orientation and ω is an m-form, then one has:
+
+{\displaystyle \int _{M}\omega =-\int _{M'}\omega \,.} \int _{M}\omega =-\int _{M'}\omega \,.
+These conventions correspond to interpreting the integrand as a differential form, integrated over a chain
