@@ -2,6 +2,15 @@ Negative binomial stitching needs a pipi trace
 
 Use the mathematical description of parallelism
 
+
+
+While in Euclidean geometry two geodesics can either intersect or be parallel, in hyperbolic geometry, there are three possibilities. Two geodesics belonging to the same plane can either be:
+
+intersecting, if they intersect in a common point in the plane,
+parallel, if they do not intersect in the plane, but converge to a common limit point at infinity (ideal point), or
+ultra parallel, if they do not have a common limit point at infinity.
+In the literature ultra parallel geodesics are often called non-intersecting. Geodesics intersecting at infinity are called limiting parallel.
+
 2 pi delta K le delta S
 
 2 pi (tr rho K - tr rho S|_v) le delta S

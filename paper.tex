@@ -13,6 +13,11 @@
 \newcommand{\mcC}{\mathcal{C}}
 \newcommand{\mcS}{\mathcal{S}}
 \newcommand{\mcD}{\mathcal{D}}
+\newcommand\ninepointscircle[3]{}
+\usepackage{tikz}
+\usetikzlibrary{calc,through,intersections}
+\usepackage{ifthen}
+\usepackage{geometry}
 \DeclareMathOperator*{\argmax}{arg\,max}
 \DeclareMathOperator*{\argmin}{arg\,min}
 \newenvironment{block}{\begin{adjustwidth}{1.5cm}{1.5cm}\noindent}{\end{adjustwidth}}
@@ -78,17 +83,58 @@ $$
 where $\lbrack \cdot, \cdot\rbrack : \mcS \times \mcS \mapsto \mcS$ is the Lie
 bracket operator.
 
-We have a bijection from $\pi(\mcK) \in \mcS \times \mcS$ to $r(\tau) \in \mcS$
+Suppose that $[s_i, s_{-i}] < 0_{\mcS}$. We have a cone projection in $\mcS_\tau$ 
+\begin{center}
+\begin{tikzpicture}[scale=1.2]
+	\tikzset{mypoints/.style={fill=white,draw=black,thick}}
+	\def\ptsize{2.0pt}
+	\def\a{3} \def\b{1.75}
+	% warning: construction fails if xp<0 or yp<=0
+	\def\xp{3.0} \def\yp{3.5} 
+	\def\i{0.85} \def\j{-0.25}%determines rays from P
+	\coordinate[label=above:P] (P) at (\xp,\yp);
+	\coordinate (M) at ({\a*\i},0);
+	\coordinate (N) at ({\a*\j},0);
+	\coordinate (AA) at (0,-\b);
+	\coordinate (BB) at (1,-\b);
+	\coordinate (CC) at (-\a,0);
+	\coordinate (DD) at (-\a,1);
+	\coordinate (Q) at (intersection of P--N and AA--BB);
+	\coordinate (R) at (intersection of P--M and AA--BB);
+	\draw[name path=ellipse,dotted,very thick]
+		(0,0) circle[x radius = \a cm, y radius = \b cm];
+	\path[name path=linePQ,blue] (P)--(Q);
+	\path[name path=linePR,dotted] (P)--(R);
+	\path [name intersections={of = ellipse and linePQ}];
+	\coordinate[label=above:A] (A)  at (intersection-1);
+	\coordinate[label=below left:$B_{t-1}$] (B) at (intersection-2);
+	\path [name intersections={of = ellipse and linePR}];
+	\coordinate[label=above right:A'] (C)  at (intersection-1);
+	\coordinate[label=above left:$B_t$] (D) at (intersection-2);
+	\draw (B)--(P)--(D) (A)--(D) (C)--(B);
+	\coordinate [label=below left:$\mathcal O$] (E) at (intersection of A--D and B--C);
+    \coordinate[label=above right:$\tau-1_\kappa$] (F) at (intersection of A--C and B--D);
+	\draw [name path=lineFA,blue,thick] (F)--(A);
+	\path [name intersections={of = ellipse and lineFA}];
+	\coordinate[label=above:] (X) at (intersection-1);
+	\coordinate[label=above right:] (Y) at (intersection-2);
+	\coordinate (XX) at ($(P)!1.5!(X)$);
+	\coordinate (YY) at ($(P)!1.5!(Y)$);
+	\draw[very thick,dotted,black!50] (XX)--(P)--(YY);
+	\draw[very thick,dotted,black!50,shift={(1:2)}] (XX)--(P)--(YY);
+	\foreach \p in {A,B,C,D,E,P,X,Y}
+		\fill[mypoints] (\p) circle (\ptsize);
+  \end{tikzpicture}
+\end{center}
+We have a bijection from $\pi\mcK \in \mcS \times \mcS$ to $r(\tau) \in \mcS$
 such that
 $B_{s_{-i}}(\tau) < \pi\mcK$ reveals a sub-algebra extending the strategy space
 with respect to the real variable $\tau$, and is a homeomorphy with respect to
-the ???. %2 tau^K 
+the ... blah... and the expectation $\mathbb{E}[r(\tau)]$. %2 tau^K 
 Thus, the resulting subspace topology is simply connected.
 
-We now claim that if $s$ is in the null space of the ball, then there exists an identity
+We claim that if $s$ is in the null space of the ball, then there exists an identity
 operator such that $\pi\kappa(s) \mapsto [s]$.
-
-
 Now, given a function $\phi$, we examine the
 extended strategy space where $s_1$ stochastically dominating $s_2$ implies that
 $\mathbb{E}[\phi (\cdot, s_2 )] > \mathbb{E}[\phi (\cdot, s_1 )]$. Suppose
