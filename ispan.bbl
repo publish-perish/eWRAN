@@ -1,0 +1,50 @@
+\begin{thebibliography}{1}
+
+\bibitem{RMANI}
+P.~Absil and J.~Malick.
+\newblock {Projection-like Retractions on Matrix Manifolds}.
+\newblock {\em SIAM Journal on Optimization}, 22:135--158, 2012.
+
+\bibitem{AVG}
+E.~O. Jordan~Blocher, Vincent R.~Martinez.
+\newblock {Data assimilation using noisy time-averaged measurements}.
+\newblock {\em Physica D}, (376--377):49--59, 2017.
+
+\bibitem{VIS}
+M.~H. Lace M.~Padilla, Sarah H. Creem-Regehr and J.~K. Stefanucci.
+\newblock {Decision making with visualizations: a cognitive framework across
+  disciplines}.
+\newblock {\em Cognitive Research: Principles and Implications}, (3:29), 2018.
+
+\bibitem{SIG}
+T.~Michael and T.~Quint.
+\newblock {Sphere of Influence Graphs in General Metric Spaces}.
+\newblock {\em Mathematical and Computer Modelling}, (29):45--53, 1998.
+
+\bibitem{FAIR}
+T.~Quint.
+\newblock {Necessary and sufficient conditions for balancedness in partitioning
+  games}.
+\newblock {\em Mathematical Social Sciences}, (22):87--91, 1991.
+
+\bibitem{MECH}
+G.~G. Richard~Cole, Vasilis~Gkatzelis.
+\newblock {Mechanism Design for Fair Division: Allocating Divisible Items
+  without Payments}.
+
+\bibitem{MIC}
+M.~H.-M.~S. Richard~Hartley, Sadeep~Jayasumana and H.~Li.
+\newblock {Riemann Manifolds, Kernels, and Learning}.
+\newblock 2016.
+
+\bibitem{NJ}
+N.~Wilderberger.
+\newblock {Introduction to Algebraic Topology}.
+\newblock 2018.
+
+\bibitem{SUPS}
+J.~Xu and B.~Hajek.
+\newblock {The Supermarket Game}.
+\newblock {\em Stochastic Systems}, 3(2):405--441, 2013.
+
+\end{thebibliography}

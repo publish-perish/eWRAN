@@ -1,0 +1,59 @@
+This is BibTeX, Version 0.99d (TeX Live 2017/Debian)
+Capacity: max_strings=100000, hash_size=100000, hash_prime=85009
+The top-level auxiliary file: ispan.aux
+The style file: abbrv.bst
+Database file #1: myrefs.bib
+Too many commas in name 1 of "Richard Hartley, Sadeep Jayasumana, Mahrtash Harandi, Mathieu Salzmann and Hondong Li" for entry MIC
+while executing---line 1049 of file abbrv.bst
+Warning--there's a number but no volume in AVG
+Warning--there's a number but no volume in VIS
+Warning--there's a number but no volume in SIG
+Warning--there's a number but no volume in FAIR
+Warning--empty journal in MECH
+Warning--empty year in MECH
+Too many commas in name 1 of "Richard Hartley, Sadeep Jayasumana, Mahrtash Harandi, Mathieu Salzmann and Hondong Li" for entry MIC
+while executing---line 1090 of file abbrv.bst
+Warning--empty journal in MIC
+Warning--empty journal in NJ
+You've used 9 entries,
+            2118 wiz_defined-function locations,
+            565 strings with 5083 characters,
+and the built_in function-call counts, 2452 in all, are:
+= -- 245
+> -- 93
+< -- 0
++ -- 37
+- -- 28
+* -- 166
+:= -- 430
+add.period$ -- 26
+call.type$ -- 9
+change.case$ -- 41
+chr.to.int$ -- 0
+cite$ -- 17
+duplicate$ -- 95
+empty$ -- 198
+format.name$ -- 28
+if$ -- 489
+int.to.chr$ -- 0
+int.to.str$ -- 9
+missing$ -- 9
+newline$ -- 47
+num.names$ -- 18
+pop$ -- 41
+preamble$ -- 1
+purify$ -- 32
+quote$ -- 0
+skip$ -- 60
+stack$ -- 0
+substring$ -- 152
+swap$ -- 6
+text.length$ -- 0
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 36
+warning$ -- 8
+while$ -- 28
+width$ -- 10
+write$ -- 93
+(There were 2 error messages)

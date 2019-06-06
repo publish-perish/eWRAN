@@ -1,0 +1,516 @@
+\documentclass[11pt]{article}
+ 
+\usepackage[text={6in,8.1in},centering]{geometry}
+ 
+\usepackage{enumerate}
+\usepackage{amsmath,amsthm,amssymb}
+\usepackage{mathrsfs} % to use mathscr fonts
+ 
+\usepackage{tikz}
+\usetikzlibrary{calc,through,intersections}
+\usepackage{pstricks}
+\usepackage{pst-solides3d}
+\usepackage{pstricks-add}
+\usepackage{graphicx}
+\usepackage{pst-tree}
+\usepackage{pst-poly}
+\usepackage{calc,ifthen}
+\usepackage{float}\usepackage{multicol}
+\usepackage{multirow}
+\usepackage{array}
+\usepackage{longtable}
+\usepackage{tikz}
+\usepackage{tkz-berge}
+\usepackage{fancyhdr}
+\usepackage{algorithmicx,algpseudocode}
+\usepackage{changepage}
+\usepackage{color}
+\usepackage{listings}
+\usepackage{fancyvrb}
+
+\lstset{ %
+language=C++,                % choose the language of the code
+basicstyle=\footnotesize,       % the size of the fonts that are used for the code
+numbers=none,                   % where to put the line-numbers
+numberstyle=\footnotesize,      % the size of the fonts that are used for the line-numbers
+stepnumber=1,                   % the step between two line-numbers. If it is 1 each line will be numbered
+numbersep=5pt,                  % how far the line-numbers are from the code
+backgroundcolor=\color{white},  % choose the background color. You must add \usepackage{color}
+showspaces=false,               % show spaces adding particular underscores
+showstringspaces=false,         % underline spaces within strings
+showtabs=false,                 % show tabs within strings adding particular underscores
+frame=none,           % adds a frame around the code
+tabsize=2,          % sets default tabsize to 2 spaces
+captionpos=b,           % sets the caption-position to bottom
+breaklines=true,        % sets automatic line breaking
+breakatwhitespace=false,    % sets if automatic breaks should only happen at whitespace
+escapeinside={\%*}          % if you want to add a comment within your code
+}
+
+\newenvironment{block}{\begin{adjustwidth}{1.5cm}{1.5cm}\noindent}{\end{adjustwidth}}
+
+\newtheorem{proposition}{Proposition}[section]
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}{Lemma}[section]
+\newtheorem{corollary}{Corollary}[section]
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}[section]
+ 
+\title{Controls for Smart Systems}
+\author{{\sc Jordan F. Blocher}\\ 
+Department of Mathematics\\ 
+University of Nevada-Reno\\ 
+Reno, Nevada, USA\\
+{\tt jordanblocher@gmail.com}}
+ 
+ 
+\def\R{\mbox{$\mathbb R$}}
+\def\Q{\mbox{$\mathbb Q$}}
+\def\Z{\mbox{$\mathbb Z$}}
+\def\N{\mbox{$\mathbb N$}}
+\def\C{\mbox{$\mathbb C$}}
+\def\Sym{\operatorname{Sym}}
+\def\lcm{\operatorname{lcm}}
+\def\adj{\operatorname{adj}}
+\def\inc{\operatorname{inc}}
+\def\Cay{\operatorname{Cay}}
+\def\Geom{\operatorname{\cal G}}
+\def\ker{\operatorname{ker}}
+\def\kernel{\operatorname{ker}}
+\def\automorphism{\operatorname{Aut}}
+\def\endomorphism{\operatorname{End}}
+\def\inner{\operatorname{Inn}}
+\def\outer{\operatorname{Out}}
+\def\crossing{\operatorname{cr}}
+\def\cent{\textcent}
+\def\n{\\ \vspace{1.7mm}}
+\def\diam{\operatorname{diam}}
+\newcommand{\mcL}{\mathcal{L}}
+\newcommand{\mcI}{\mathcal{I}}
+\newcommand{\mcM}{\mathcal{M}}
+\newcommand{\mcP}{\mathcal{P}}
+\newcommand{\mcX}{\mathcal{X}}
+\newcommand{\mcK}{\mathcal{K}}
+\newcommand{\mcG}{\mathcal{G}}
+\newcommand{\mcC}{\mathcal{C}}
+\newcommand{\mcS}{\mathcal{S}}
+\newcommand{\mcD}{\mathcal{D}}
+\DeclareMathOperator*{\argmax}{arg\,max}
+\DeclareMathOperator*{\argmin}{arg\,min}
+\renewcommand{\emptyset}{\O}
+ 
+ 
+\newcounter{ZZZ}
+\newcounter{XXX}
+\newcounter{XX}
+ 
+\headsep25pt\headheight20pt
+ 
+ 
+\pagestyle{fancyplain}
+\lhead{\fancyplain{}{\small\bfseries Blocher}}
+\rhead{\fancyplain{}{\small\bfseries\thepage}}
+%\cfoot{\ \hfill\tiny\sl Draft printed on \today}
+ 
+ 
+\setlength{\extrarowheight}{2.5pt} % defines the extra space in tables
+ 
+ 
+ 
+\begin{document}
+ 
+\baselineskip6mm\parskip4mm
+
+\maketitle
+
+\begin{abstract}
+
+We intend to prove that the application of a constructed output controller designed for a finite-dimensional ODE system would facilitate an appropriate control of a more complex infinite dimensional PDE system. The observer design will be the main contribution and describes the complexity and innovation of this project. The final step is confirmation of the theoretical results in extensive numerical simulations.
+Given a stochastic arrival process, we define a subset of the field of
+right-continuous, left-limited \emph{cadlag} 
+functions, and show there exists a mapping of player types to a time-dependent
+arrangement, where we may then apply our statistical game theoretic approach.
+We conjecture that the choice of arrangement and random process results in a
+proximity/incidence graph with nice properties.
+
+\end{abstract}
+ 
+{\small\sc Keywords:} {\small wireless networks, dynamic systems, graphical machine learning} 
+ 
+
+\section{Introduction}
+
+In scientific analysis, visualizations communicate complex information. We
+attempt to determine the mathematical framework neccesary to design a dynamical
+system to describe the dual-process of decision making. Dynamical systems provide us with
+a way to recognize spacial patterns by using simulations. We intend to develop a
+dynamic visualization of the decision process using a game-theoretical
+framework. 
+
+Analysis, topology, algebraic topology, and other fields of mathematics are building
+in
+the assumption that we can get to the end of infinity ($\infty$), extract
+something, and take that something back into the mathematics \cite{NJ}.
+In image processing, Grassman manifolds are used to proccess
+sets of images \cite{MIC}. The space of a uncertainty states, restriced to nice
+properties, is sometimes called an ensemble. This is the manifold that we wish to
+address in our research, and it's construction is the main topic of this research proposal.
+The cost function, which is crucial in game theory and mechanism design,
+is not the focus of our analysis, in fact, it is not neccesary for fair
+division of resources in mechanism design, as in \cite{MECH}. 
+Through the use of retractions, the dual-process of transforming states using
+exponential and logarithmic functions \cite{RMANI}, 
+we are able to localize points of
+interest on a manifold; these points transform to an algebra, where
+properties are nicer, and therefore are computationally tractable. In
+short, the projection of a manifold onto it's algebra allows for the
+manifold to be locally smooth (at least $C^2$ continuous). We allow the
+state to evolve on the manifold, and perform our calculations on the
+algebra. Algebras are verstatile mathematical objects, and often
+have a natural mapping to more complex fields, where we may build
+regions of interest, basins of attraction, neighborhoods, i.e. balls, or
+circles. From there we may construct bundles and bisectors \cite{NJ}. As
+data science and its respective corrolations become more complex, so do
+the geodesics on the corresponding manifold. Retractions generate approximations
+of geodesics that are first-order accurate \cite{RMANI}.
+
+We hope to design a type of manifold, one that functions as a
+mechanism, similar to dicationary learning \cite{MIC}. We expect that the kernel
+(core) is non-empty, and further, that new insight may be gained by the
+visualization. We hope to make use of this manifold to further the security
+game, and define a new color palette with a one-to-one correspondence to the
+math model. We speculate that the manifold might be 'preshape' \cite{MIC}, as a
+shape manifold is equal to a complex projective space or possibly
+Grassman. We expect strong similarity, as well as fibration(s). The coefficients
+will be iteratively calculated, and will provide scale, assisting in the
+Visualization. The elements of the calculations are $n$-vectors in complex
+space. What we hope is to generate a beautiful simulation.
+
+\section{Related Work}
+
+As stated in \cite{VIS},
+visualizations are systematically related to the information that they represent. 
+Geodesics on a manifold are intensely complicated. 
+There exist well-publicized descriptions detailing some of the
+manifolds that we have found, i.e. $\mathbb{R}^n$, $\mcS^n$, the Lie group
+($SO(3)$), positive definite matrices (or "covariance features"), Grassman
+manifolds, Essential manifolds; each are used to capture a different aspect of
+the geometry for analysis. For example, Shape manifolds capture the shape of an object. This
+research has led algorithms design towards projective geometry, where retractions on
+manifolds has allowed for a decrease in the computational complexity of solving
+optimization problems \cite{MECH}. Different manifolds are useful
+for solving different problems; the Lie group operator on $SO(3)$ may be used to
+build a discrete extended Kalman filter to perform efficient computations
+for rotation averaging. The visualizations of the output of these algorithms
+are difficult to intuit, and require a high degree of specialization. We notice 
+that none of these methods, as far as we know,
+have been used to address a mixed strategy space (uncertainty space), and attempt to
+visualize it. Algebras are versatile mathematical objects, and often
+have a natural mapping to more complex fields, where we may build
+regions of interest, basins of attraction, neighborhoods, i.e. balls, or
+circles. 
+It is natural to take these forms on an algebra and form a linear
+system, such as a partitioning linear program. In the case that the
+extreme point providing the solution to the system is integral, then the
+associated \emph{game} is non-empty \cite{FAIR}. 
+Thus, we arrive at a game-theoretical framework on which to begin an
+analysis based on decision theory. Visualization cognition has been
+studied as a subset of visual spacial reasoning, and steps have been
+taken to build the association with dual-process systems, i.e. using both
+mathematical modeling and heuristics \cite{VIS}. These
+studies, however, focus on decision theory based on visualization
+cognition, and draw conclusions from empirical studies. It is not
+unreasonable to suppose that, in the very least, a
+heuristic can be drawn from a mathematical model based on decision theory, and visualized.
+
+It is known, particularly in computer vision, that kernels,
+or similarity measures, are analogous to product spaces, which are the
+dual space of quotient spaces. A symmetric kernel is equivalent to an inner
+product. Filtering algorithms, such as the discrete 
+extended Kalman filter on Lie
+groups \cite{RMANI} function as a kernel
+mechanism which is useful for averaging a sliding window of rotary
+measurements. These types of mechanisms are often used in real-life
+applications, where we often only have partial measurements. Partial
+measurements are naturally uncertain, and correlate to partial knowledge in a
+decision-making process. The mathematical model of decision theory with uncertainty 
+was built for
+simple Martingales, and the existence of Nash equilibria was shown for a
+queuing network with a Poisson arrival process, which was
+later extended to heterogeneous networks \cite{SUPS}.
+
+The use of retractions on manifolds, and their efficiency at computing the
+state of linear and non-linear systems results in massive computational
+toolchains of every time. We address the need for a general metric and
+associated model, that will support a game-theoretical analysis. A
+sphere-of-influence (SIG) is both an incidence graph and a proximity graph,
+where nice (local) properties on a manifold produce well-defined geometry, in
+\cite{SIG}.
+It remains to address the noise. Noisy partial measurements in the phase space
+of the problem have been shown to converge for the Lorentz system in \cite{AVG}. 
+
+\section{A Mathematical Approach to Evolve a Decision Process}
+\label{sec:Approach}
+%Short overview of subtopics.
+%\subsection{Subtopic 1}
+%\begin{itemize}
+%	\item \emph{What approach will be used?}
+%	\item \emph{Why is the approach promising?}
+%	\item \emph{What are the expected results?}
+%\end{itemize}
+
+\subsection{Strategy space as a process}
+
+Let $\mcS$ be a distribution of possible binary decisions in the strategy space
+$\mcS \times \mcS$. The interaction between the strategies is modeled as an
+arrival process, where we apply queuing theory to form the arrangement of
+strategies. The cadlag (”continu a droite, limites a gauches”) functions are
+right-continuous functions on with left limits. Defining $\mcS$ as a cadlag
+finite variation process, we have that the quadratic variation equal to the sum
+of the squares of the jumps, and so the mapping $\theta$ must preserve the
+quadratic form. Thus, we preserve the ergodic properties of the jump-diffusion
+process.
+
+
+We assume a stochastic arrival process, and by associating the time of
+arrival with a cost function and mapping $\theta$ to the complex plane, we
+iteritavely create the geodesics necessary to build the SIG. This approach
+allows for a topological analysis of the interacting strategies. A normalizing
+function $\pi$ is assumed to keep the problem space within the range $\langle 0,
+1 \rangle$, and choose our arrangement to allow one strategy $s$ to
+stochastically dominate another. The exit process is determined by the noise
+process, which ends the mapping $\theta$ and the strategy space $\mcS$ is
+removed from the system.
+
+We make use of mean field theorem (Xu and
+Hajek ), and construct the SIG using an inverse mapping
+from a sub-algebra revealed by the choice of arrangement on the arrival process.
+We conjecture that if the subspace is simply connected, then there exists a
+mapping $\phi$ from the kernel of the problem space.
+
+The decision process is the result of pair interactions,
+and can be represented by the index $(i,j)^n$ in the
+resulting $2^n$ matrix. These pair interactions define the diffusion process,
+and the evolution of the decision process for each strategy space.
+
+\subsection{Queuing theory applied to an arrival process}
+
+Let $\pi$ be a normalizing function acting on an angle $\theta \in \mathbb{C}$.
+The mapping $\mathbb{N} \mapsto \mcK\times \mcS$ exists if and only if there is
+the product space $\lbrace \pi k \mapsto r(\tau)\rbrace$, where $k=1$ defines
+the mapping 
+$$
+    \theta(\cdot, k) \mapsto \mcP^k \times \mcK.
+$$
+$\mcK$ is the space of \emph{cadlag} functions restricted to
+$\mathbb{A}^\mathbb{R} \times [0,1]^\mathbb{R}$,
+and $\mcP$ is the projective space of the
+player's strategy distribution $\mcS$. We define right-continuity as 
+a \emph{stopping time} $\tau:\mcS \rightarrow [0,+\infty]^\mathbb{R}$, and
+$r(\tau) \subset \mcS \times \mcS$ to be a subspace of size $\mcK$ at time $\tau$.
+
+Let $\mcI$ be an arrangement on $\mcK$ where
+$\theta (s_1, r(t)) > \theta (s_1, r(t+1))$ implies that $\pi k < \pi
+(k+1)$ for all $t\in\tau$.
+Then, fixing $t\in \tau$, let $\theta' \ne \theta$ be given by 
+$$
+    \theta' = \theta \cdot \displaystyle\sqrt{\frac{1+\beta^2}{1-\beta^2}},
+$$
+where $\beta = \tan\theta$. 
+
+We claim that there exists a geodesic such that there is a
+mapping from the origin, $0_{\mcS}$, is defined by the ball
+$$
+    B(\tau, \cdot) = \lbrace \lbrack s_i, s_{-i}\rbrack : i \in \mcI \subset
+    \mcK\times \tau \rbrace,
+$$
+where $\lbrack \cdot, \cdot\rbrack : \mcS \times \mcS \mapsto \mcS$ is the Lie
+bracket operator.
+
+Suppose that $\langle s_i, s_{-i}\rangle < 0_{\mcS}$. We have a cone projection in
+$\mcS_\tau$ that represents a bijection from $\pi\mcK \in \mcS \times \mcS$ to $r(\tau) \in \mcS$
+such that
+$B_{s_{-i}}(\tau) < \pi\mcK$ reveals a sub-algebra extending the strategy space
+with respect to the real variable $\tau$, and is a homeomorphy with respect to
+the kernel and the expectation $\mathbb{E}[r(\tau)]$. %2 tau^K 
+Thus, the resulting subspace topology is simply connected.
+
+We claim that if $s$ is in the null space of the ball, then there exists an identity
+operator such that $\pi\kappa(s) \mapsto [s]$.
+Now, given a function $\phi$, we examine the
+extended strategy space where $s_1$ stochastically dominating $s_2$ implies that
+$\mathbb{E}[\phi (\cdot, s_2 )] > \mathbb{E}[\phi (\cdot, s_1 )]$. Suppose
+$\phi^{-1}$ preserves the quadratic form $(t^2- \langle s \rangle) \mapsto (t, r, \theta)$, so
+that
+$$
+    \displaystyle \int_t^{t+1} \phi^{-1}(\theta(\mcK)) dt = \theta(\cdot,
+    k+1)-\theta(\cdot,k).
+$$
+
+The collection of strategic decisions may be modeled by an arrival process
+determined by the mapping $\phi(\tau, \cdot)$, giving the jump-diffusion
+process
+$$
+    d\mcS_t = \theta(\cdot, t) \phi(\mcS_t) dt + \phi_t(\mcS_t) dW_t,
+$$
+where $W_t: [0, +\infty) \times \mcS \rightarrow \mcS$ is a one-dimensional
+stop-time Brownian motion. 
+As any cadlag finite variation process has quadratic variation equal to the sum
+of the squares of the jumps $0=s_0<s_1<\cdots s_n$, the solution to
+$$
+    s_i(\tau) = \int_{\theta_i(s_i, t)}^{\theta_i(s_i,t+1)} \pi(\tau) \ d\tau
+$$ 
+for $t \in \tau$ gives a set of unique jumping points $0=s_0<s_1< \cdots < s_{\overline \mcK} = s_{MAX}$. 
+Let each player's stop time $\tau$ occur at a random jumping point within their
+strategy space, thereby fixing $\overline{\mcK}$ for that player.
+
+\subsection{A topological bound on the expanded strategy space}
+
+We consider a ball $B$, where a nonzero flux at the boundary represents an
+uncertainty state, and take a random measure on $(\mcS \times \mcS, \mcK)$, i.e.
+the $\sigma(\phi)$-algebra of the arrival process.
+Then, each ball $B$ represents a distribution of possible strategies, and as subset of the
+measure space we are able to compute its density function. 
+Define the density operator $\rho$ on $\mcS\times \mcS$ as
+$$
+    \rho = \displaystyle\sum \vert s_i\rangle\langle s_{-i}\vert
+$$
+where $\vert s_i\rangle\langle s_{-i}\vert$ is the outer product. The state
+$[s]$ is an algebra of $\mcS\times\mcS$, with expectation
+value given by $\langle [s] \rangle = \text{tr}{\rho [s]}$, and is pure imaginary.
+The density matrix used here is defined to be the statistical state of a system in
+quantum mechanics, and is particularly useful in dealing with mixed states.
+Define a graph $\mcG$ as the set subsets of $\mcS\times\mcS$ of fully connected nodes.
+We claim that there exists an additional, induced metric, on $\mcG$.
+The closed sphere of influence graph covers the intersections
+of the closed balls $\lbrace\overline{B}\rbrace \subset \mcS\times \mcS$, where
+$$
+    \overline{B}= \lbrace B_i \in \mcS : \min\rho(s_i, s_{-i}) \le
+    r_{\tau\times\tau} \rbrace.
+$$
+We finally claim to have an immersion in the surrounding
+dynamical complex field $\mathbb{C}^{\tau\times\tau}$. The density matrix compresses
+the space $\mcS \times \mcS$ to its canonical form. Thus, by Schur's lemma, the intertwining map
+$phi^{-1} \mapsto \mcS \times \mcS$, is either $0$, or an isomorphism.
+Thus,$\mcG$ is a unitary structure that can be seen as an orthogonal structure, a complex
+structure, and a symplectic structure.
+
+\subsection{The dynamics of the symplectic manifold}
+
+The complex field $\mathbb{C}^{\tau\times\tau}$ encases the distributions of the
+player strategies; that is, the gradient of the distribution across the boundary
+of $\mcG$ determines the orientation of exterior. 
+We proceed to determine the skew-distribution of the closed manifold. We build from the geometric form, and
+extend the cross-product $[s_1 ]_x s_2$ , which is characterized by the
+transition $s_i \tilde k$ to $s_i+1 \tilde k + 1$.
+
+We examine the skew-Hermetian assignment, and the resulting tangent vector, or four-velocity. 
+The four coordinate functions $\theta^c (\tau), c = 0, 1, 2, 3$ are real
+functions of a real variable $\tau$. 
+We have that $\phi\cdot \mcS\subset \mcS$ is the subset of skew-Hermetian matrices known as signed
+permutation matrices. We extend our mean-field model to include this
+representation by setting $\begin{bmatrix}0 \\ k\end{bmatrix} = \begin{bmatrix}1
+\\ k\end{bmatrix}$ at the stop time $\tau$, where $\begin{bmatrix} \cdot \\
+\cdot\end{bmatrix}$ is a binomial operator.
+
+We conjecture that the marginal value of this construction maps back to the
+convex kernel of the strategy space with a left limit. It is unclear if there is
+a well-defined correspondence between the Minkowski metric and the HARA utility
+function. The nature of the diffusion process is intended to allow for the
+combination of strategies due to pair interactions occurring once the SIG is
+completed, and will direct the evolution of the strategy space.
+
+\begin{center}
+\begin{tikzpicture}[scale=1.2]
+	\tikzset{mypoints/.style={fill=white,draw=black,thick}}
+	\def\ptsize{2.0pt}
+	\def\a{4} \def\b{1.75}
+	% warning: construction fails if xp<0 or yp<=0
+	\def\xp{1.0} \def\yp{3.5} 
+	\def\i{.85} \def\j{0.5}%determines rays from P
+
+	\coordinate[label=above:P] (P) at (\xp,\yp);
+	\coordinate (M) at ({\a*\i},0);
+	\coordinate (N) at ({\a*\j},0);
+	\coordinate (AA) at (0,-\b);
+	\coordinate (BB) at (1,-\b);
+	\coordinate (CC) at (-\a,0);
+	\coordinate (DD) at (-\a,1);
+	\coordinate (Q) at (intersection of P--N and AA--BB);
+	\coordinate (R) at (intersection of P--M and AA--BB);
+
+	\draw[name path=ellipse,dotted,very thick]
+		(0,0) circle[x radius = \a cm, y radius = \b cm];
+
+	\path[name path=linePQ,blue] (P)--(Q);
+	\path[name path=linePR,dotted] (P)--(R);
+
+	\path [name intersections={of = ellipse and linePQ}];
+	\coordinate[label=above:A] (A)  at (intersection-1);
+	\coordinate[label=below left:$B_{t-1}$] (B) at (intersection-2);
+
+	\path [name intersections={of = ellipse and linePR}];
+	\coordinate[label=above right:A'] (C)  at (intersection-1);
+	\coordinate[label=below right:$B_t$] (D) at (intersection-2);
+	
+    \draw (B)--(P)--(D) (A)--(D) (C)--(B);
+
+	\coordinate [label=below left:$\mathcal O$] (E) at (intersection of A--D and B--C);
+    \coordinate[label=above right:$\tau-1_\kappa$] (F) at (intersection of A--C and B--D);
+
+	\draw [name path=lineFA,blue,thick] (F)--(A);
+
+	\path [name intersections={of = ellipse and lineFA}];
+	\coordinate[label=above:] (X) at (intersection-1);
+	\coordinate[label=above right:] (Y) at (intersection-2);
+	\coordinate (XX) at ($(P)!1.5!(X)$);
+	\coordinate (YY) at ($(P)!1.5!(Y)$);
+
+	\draw[very thick,dotted,black!50] (XX)--(P)--(YY);
+	\draw[very thick,dotted,black!50,shift={(1:2)}] (XX)--(P)--(YY);
+
+	\foreach \p in {A,B,C,D,E,P,X,Y}
+		\fill[mypoints] (\p) circle (\ptsize);
+  \end{tikzpicture}
+\end{center}
+
+\section{Remarks and Open Problems}
+
+We wonder if there exists an additional, induced metric, on the
+SIG. The the closed sphere of influence graph (CSIG) covers the intersections
+of the closed balls $\lbrace\overline{\mcS}\rbrace \subset \mcS\times \mcS$, where
+$$
+    \overline{S}_t= \lbrace S_t \in \mcS : \min\rho(S_t, S_{-t}) \le r_\tau \rbrace.
+$$
+Forming the CSIG,
+we endow the resulting strategy space with the Minkowski metric $\eta$, defined by the matrix
+$$
+	(\eta)_\alpha\beta = \begin{bmatrix}
+		-1 & 0 & 0 & 0 \\
+		0 & 1 & 0 & 0 \\
+		0 & 0 & 1 & 0 \\
+		0 & 0 & 0 & 1 \\
+	\end{bmatrix}.
+$$
+The Minkowski space $\mcM$ contains sub-manifolds endowed with a Riemannian metric yielding hyperbolic geometry. 
+We conjecture that indefiniteness of the Minkowski metric will allow for the
+construction of a utility function for the ensemble space. 
+Consider a hyperbolic absolute risk aversion (HARA) $\mu$, which must adhere to,
+for utility $\mu$,
+$$
+    \displaystyle\frac{\mu''(\langle s_i,s_{-i}\rangle)}{\mu'(\langle s_i,
+    s_{-i})}.
+$$
+
+
+It remains to determine the variety of stable processes defining a decision model, determined by a drift-diffusion process, and use a mean field theorem to prove the existence of a dense strategy
+space via inverse map, and examine the evolution of the resulting compacted strategy space. 
+The diffusion process, in addition, may have unknown complexity. We conjecture that it must be bounded by the decisions reflected in the jump process.
+
+
+
+\bibliographystyle{abbrv}	
+\bibliography{myrefs}		
+
+\end {document}
+
