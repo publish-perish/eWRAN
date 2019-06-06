@@ -1,0 +1,105 @@
+%==============================================================================
+% ETHASL - Template for student projects at the ASL
+% 2014.05: Péter Fankhauser
+% This template is based on the IMRT Latex template by Eric A. Mueller.
+%==============================================================================
+
+\documentclass[10pt,twoside,a4paper]{article}
+
+% ETHASL package
+\usepackage[]{packages/ethasl}
+% TIKZ
+\usepackage{tikz}
+\usetikzlibrary{calc,through,intersections}
+\usepackage{ifthen}
+\usepackage{geometry}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% LaTeX preamble
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\input{preambles/asl_preamble}
+
+% New math commands/ operators
+\newcommand{\mcL}{\mathcal{L}}
+\newcommand{\mcI}{\mathcal{I}}
+\newcommand{\mcM}{\mathcal{M}}
+\newcommand{\mcP}{\mathcal{P}}
+\newcommand{\mcX}{\mathcal{X}}
+\newcommand{\mcK}{\mathcal{K}}
+\newcommand{\mcG}{\mathcal{G}}
+\newcommand{\mcC}{\mathcal{C}}
+\newcommand{\mcS}{\mathcal{S}}
+\newcommand{\mcD}{\mathcal{D}}
+\newcommand\ninepointscircle[3]{}
+\DeclareMathOperator*{\argmax}{arg\,max}
+\DeclareMathOperator*{\argmin}{arg\,min}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Title page
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+
+% TODO Add your title
+\title{A $\mathcal{C}\lbrack\tau \times \tau\rbrack$ Immersion of an
+Evolutionary Stable Strategy}
+%\subtitle{Subtitle}
+
+% TODO Add name of the authors
+\student{Jordan Blocher}
+
+% TODO Adapt
+\proposalDate{May, 2019}
+\maketitle
+\pagestyle{plain}
+\pagenumbering{roman}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Chapters standard
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\input{chapters/abstract}
+\cleardoublepage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Chapters custom
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\pagestyle{fancy}
+\pagenumbering{arabic}
+
+\input{chapters/introduction}
+\input{chapters/objectives}
+\input{chapters/related_work}
+\input{chapters/approach}
+\input{chapters/time_schedule_and_planned_papers}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Appendix
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\appendix
+%\input{chapters/appendix_text}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Bibliography
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\bibliography{bibliography/literature}
+
+\subsection{Foundational Literature}
+
+A literature review that includes historical
+papers would give perspective and formalization, and determine the foundation
+upon which to work. Some considerations are:\\
+$[1]$ M. E. Bratman. Intention, Plans, and Practical Reason. CSLI Publications, Stanford University, 1987.\\
+$[2]$ I. Gilboa and E. Zemel. Nash and correlated equilibria: Some complexity
+considerations. Games and Economic Behavior, 1:80-93, 1989.\\
+$[3]$ E. Kalai. Games, computers, and O.R. In ACM/SIAM Symposium on Discrete Algorithms, 1995.\\
+$[4]$ Noam Nisan and Amir Ronen. Algorithmic mechanism design. In Proc. 31st ACM Symp. on
+Theory of Computing, pages 129-140, 1999.\\
+$[5]$ C. H. Papadimitriou. On the complexity of the parity argument and other
+inefficient proofs of existence. Journal of Computer and System Sciences, 48(3):498-532, 1994.\\
+$[6]$ J. von Neumann and O. Morgenstern. Theory of Games and Economic Behavior, Second Edition. Princeton University Press, second edition, 1947.\\
+
+
+\bibliographystyle{bibliography/IEEEtranN}
+\bibliography{bibliography/references}
+
+\end{document}

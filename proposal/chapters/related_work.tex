@@ -1,0 +1,78 @@
+\section{Related Work}
+\label{sec:Related Work}
+%\begin{itemize}
+%	\item \emph{Which major works consider a similar context?}
+%	\item \emph{Which works are addressing same/similar problem and why are these works insufficient (Gaps in state of the art)?}
+%	\item \emph{Which works use a similar methodology?}
+%\end{itemize}
+%Example references in parentheses format \citep{Raibert1986LeggedRobotsThatBalance, Vukobratovic2004ZeroMomentPoint} or as textual format as in \citet{Pratt1995SEA}.
+
+\subsection{Background Studies}
+
+As stated in \citet{VIS},
+visualizations are systematically related to the information that they represent 
+(Bertin, 1983; Stenning \& Oberlander, 1995).
+Geodesics on a manifold are intensely complicated. Microsoft research has
+well-publicized descriptions (Richard Hartley, 2016) detailing some of the
+manifolds that we have found, i.e. $\mathbb{R}^n$, $\mcS^n$, the Lie group
+($SO(3)$), positive definite matrices (or "covariance features"), Grassman
+manifolds, Essential manifolds; each are used to capture a different aspect of
+the geometry for analysis. For example, Shape manifolds capture the shape of an object. This
+research has led algorithms design towards projective geometry, where retractions on
+manifolds has allowed for a decrease in the computational complexity of solving
+optimization problems \citet{MECH}. Different manifolds are useful
+for solving different problems; the Lie group operator on $SO(3)$ may be used to
+build a discrete extended Kalman filter to perform efficient computations
+for rotation averaging. The visualizations of the output of these algorithms
+are difficult to intuit, and require a high degree of specialization. We notice 
+that none of these methods, as far as we know,
+have been used to address a mixed strategy space (uncertainty space), and attempt to
+visualize it. Algebras are versatile mathematical objects, and often
+have a natural mapping to more complex fields, where we may build
+regions of interest, basins of attraction, neighborhoods, i.e. balls, or
+circles. From there we may construct bundles and bisectors (N.J.
+Wilderberger, ????). It is natural to take these forms on an algebra and form a linear
+system, such as a partitioning linear program. In the case that the
+extreme point providing the solution to the system is integral, then the
+associated \emph{game} is non-empty \citet{FAIR}. 
+Thus, we arrive at a game-theoretical framework on which to begin an
+analysis based on decision theory. Visualization cognition has been
+studied as a subset of visual spacial reasoning, and steps have been
+taken to build the association with dual-process systems, i.e. using both
+mathematical modeling and heuristics \citet{VIS}. These
+studies, however, focus on decision theory based on visualization
+cognition, and draw conclusions from empirical studies. It is not
+unreasonable to suppose that, in the very least, a
+heuristic can be drawn from a mathematical model based on decision theory, and visualized.
+
+It is known, particularly in computer vision, that kernels,
+or similarity measures, are analogous to product spaces, which are the
+dual space of quotient spaces. A symmetric kernel is equivalent to an inner
+product. Filtering algorithms, such as the discrete 
+extended Kalman filter on Lie
+groups \citet{RMANI} function as a kernel
+mechanism which is useful for averaging a sliding window of rotary
+measurements. These types of mechanisms are often used in real-life
+applications, where we often only have partial measurements. Partial
+measurements are naturally uncertain, and correlate to partial knowledge in a
+decision-making process. The mathematical model of decision theory with uncertainty 
+was built for
+simple Martingales, and the existence of Nash equilibria was shown for a
+queuing network with a Poisson arrival process, which was
+later extended to heterogeneous networks \citet{SUPS}.
+
+The use of retractions on manifolds, and their efficiency at computing the
+state of linear and non-linear systems results in massive computational
+toolchains of every time. We address the need for a general metric and
+associated model, that will support a game-theoretical analysis. A
+sphere-of-influence (SIG) is both an incidence graph and a proximity graph,
+where nice (local) properties on a manifold produce well-defined geometry, in
+\citet{SIG}.
+It remains to address the noise. Noisy partial measurements in the phase space
+of the problem have been shown to converge for the Lorentz system in \citet{AVG}. 
+As far as we know, the associated game has yet to be
+modeled.
+
+It remains to be mentioned that there are additional papers in the bibliography
+which have yet to be integrated into the proposed topic, however, they have been
+carefully selected for relevance and content.

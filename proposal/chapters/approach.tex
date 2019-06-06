@@ -1,0 +1,205 @@
+\section{A Mathematical Approach to Evolve a Decision Process}
+\label{sec:Approach}
+%Short overview of subtopics.
+%\subsection{Subtopic 1}
+%\begin{itemize}
+%	\item \emph{What approach will be used?}
+%	\item \emph{Why is the approach promising?}
+%	\item \emph{What are the expected results?}
+%\end{itemize}
+
+\subsection{Strategy space as a process}
+
+Let $\mcS$ be a distribution of possible binary decisions in the strategy space
+$\mcS \times \mcS$. The interaction between the strategies is modeled as an
+arrival process, where we apply queuing theory to form the arrangement of
+strategies. The cadlag (”continu a droite, limites a gauches”) functions are
+right-continuous functions on with left limits. Defining $\mcS$ as a cadlag
+finite variation process, we have that the quadratic variation equal to the sum
+of the squares of the jumps, and so the mapping $\theta$ must preserve the
+quadratic form. Thus, we preserve the ergodic properties of the jump-diffusion
+process.
+
+
+We assume a stochastic arrival process, and by associating the time of
+arrival with a cost function and mapping $\theta$ to the complex plane, we
+iteritavely create the geodesics necessary to build the SIG. This approach
+allows for a topological analysis of the interacting strategies. A normalizing
+function $\pi$ is assumed to keep the problem space within the range $\langle 0,
+1 \rangle$, and choose our arrangement to allow one strategy $s$ to
+stochastically dominate another. The exit process is determined by the noise
+process, which ends the mapping $\theta$ and the strategy space $\mcS$ is
+removed from the system.
+
+We make use of mean field theorem (Xu and
+Hajek ), and construct the SIG using an inverse mapping
+from a sub-algebra revealed by the choice of arrangement on the arrival process.
+We conjecture that if the subspace is simply connected, then there exists a
+mapping $\phi$ from the kernel of the problem space.
+
+The decision process is the result of pair interactions,
+and can be represented by the index $(i,j)^n$ in the
+resulting $2^n$ matrix. These pair interactions define the diffusion process,
+and the evolution of the decision process for each strategy space.
+
+\subsection{Queuing theory applied to an arrival process}
+
+Let $\pi$ be a normalizing function acting on an angle $\theta \in \mathbb{C}$.
+The mapping $\mathbb{N} \mapsto \mcK\times \mcS$ exists if and only if there is
+the product space $\lbrace \pi k \mapsto r(\tau)\rbrace$, where $k=1$ defines
+the mapping 
+$$
+    \theta(\cdot, k) \mapsto \mcP^k \times \mcK.
+$$
+$\mcK$ is the space of \emph{cadlag} functions restricted to
+$\mathbb{A}^\mathbb{R} \times [0,1]^\mathbb{R}$,
+and $\mcP$ is the projective space of the
+player's strategy distribution $\mcS$. We define right-continuity as 
+a \emph{stopping time} $\tau:\mcS \rightarrow [0,+\infty]^\mathbb{R}$, and
+$r(\tau) \subset \mcS \times \mcS$ to be a subspace of size $\mcK$ at time $\tau$.
+
+Let $\mcI$ be an arrangement on $\mcK$ where
+$\theta (s_1, r(t)) > \theta (s_1, r(t+1))$ implies that $\pi k < \pi
+(k+1)$ for all $t\in\tau$.
+Then, fixing $t\in \tau$, let $\theta' \ne \theta$ be given by 
+$$
+    \theta' = \theta \cdot \displaystyle\sqrt{\frac{1+\beta^2}{1-\beta^2}},
+$$
+where $\beta = \tan\theta$. 
+
+We claim that there exists a geodesic such that there is a
+mapping from the origin, $0_{\mcS}$, is defined by the ball
+$$
+    B(\tau, \cdot) = \lbrace \lbrack s_i, s_{-i}\rbrack : i \in \mcI \subset
+    \mcK\times \tau \rbrace,
+$$
+where $\lbrack \cdot, \cdot\rbrack : \mcS \times \mcS \mapsto \mcS$ is the Lie
+bracket operator.
+
+Suppose that $\langle s_i, s_{-i}\rangle < 0_{\mcS}$. We have a cone projection in
+$\mcS_\tau$ that represents a bijection from $\pi\mcK \in \mcS \times \mcS$ to $r(\tau) \in \mcS$
+such that
+$B_{s_{-i}}(\tau) < \pi\mcK$ reveals a sub-algebra extending the strategy space
+with respect to the real variable $\tau$, and is a homeomorphy with respect to
+the kernel and the expectation $\mathbb{E}[r(\tau)]$. %2 tau^K 
+Thus, the resulting subspace topology is simply connected.
+
+We claim that if $s$ is in the null space of the ball, then there exists an identity
+operator such that $\pi\kappa(s) \mapsto [s]$.
+Now, given a function $\phi$, we examine the
+extended strategy space where $s_1$ stochastically dominating $s_2$ implies that
+$\mathbb{E}[\phi (\cdot, s_2 )] > \mathbb{E}[\phi (\cdot, s_1 )]$. Suppose
+$\phi^{-1}$ preserves the quadratic form $(t^2- \langle s \rangle) \mapsto (t, r, \theta)$, so
+that
+$$
+    \displaystyle \int_t^{t+1} \phi^{-1}(\theta(\mcK)) dt = \theta(\cdot,
+    k+1)-\theta(\cdot,k).
+$$
+
+The collection of strategic decisions may be modeled by an arrival process
+determined by the mapping $\phi(\tau, \cdot)$, giving the jump-diffusion
+process
+$$
+    d\mcS_t = \theta(\cdot, t) \phi(\mcS_t) dt + \phi_t(\mcS_t) dW_t,
+$$
+where $W_t: [0, +\infty) \times \mcS \rightarrow \mcS$ is a one-dimensional
+stop-time Brownian motion. 
+As any cadlag finite variation process has quadratic variation equal to the sum
+of the squares of the jumps $0=s_0<s_1<\cdots s_n$, the solution to
+$$
+    s_i(\tau) = \int_{\theta_i(s_i, t)}^{\theta_i(s_i,t+1)} \pi(\tau) \ d\tau
+$$ 
+for $t \in \tau$ gives a set of unique jumping points $0=s_0<s_1< \cdots < s_{\overline \mcK} = s_{MAX}$. 
+Let each player's stop time $\tau$ occur at a random jumping point within their
+strategy space, thereby fixing $\overline{\mcK}$ for that player.
+
+\subsection{A topological bound on the expanded strategy space}
+
+We consider a ball $B$, where a nonzero flux at the boundary represents an
+uncertainty state, and take a random measure on $(\mcS \times \mcS, \mcK)$, i.e.
+the $\sigma(\phi)$-algebra of the arrival process.
+Then, each ball $B$ represents a distribution of possible strategies, and as subset of the
+measure space we are able to compute its density function. 
+Define the density operator $\rho$ on $\mcS\times \mcS$ as
+$$
+    \rho = \displaystyle\sum \vert s_i\rangle\langle s_{-i}\vert
+$$
+where $\vert s_i\rangle\langle s_{-i}\vert$ is the outer product. The state
+$[s]$ is an algebra of $\mcS\times\mcS$, with expectation
+value given by $\langle [s] \rangle = \text{tr}{\rho [s]}$, and is pure imaginary.
+The density matrix used here is defined to be the statistical state of a system in
+quantum mechanics, and is particularly useful in dealing with mixed states.
+Define a graph $\mcG$ as the set subsets of $\mcS\times\mcS$ of fully connected nodes.
+We claim that there exists an additional, induced metric, on $\mcG$.
+The closed sphere of influence graph covers the intersections
+of the closed balls $\lbrace\overline{B}\rbrace \subset \mcS\times \mcS$, where
+$$
+    \overline{B}= \lbrace B_i \in \mcS : \min\rho(s_i, s_{-i}) \le
+    r_{\tau\times\tau} \rbrace.
+$$
+We finally claim to have an immersion in the surrounding
+dynamical complex field $\mathbb{C}^{\tau\times\tau}$. The density matrix compresses
+the space $\mcS \times \mcS$ to its canonical form. Thus, by Schur's lemma, the intertwining map
+$phi^{-1} \mapsto \mcS \times \mcS$, is either $0$, or an isomorphism.
+Thus,$\mcG$ is a unitary structure that can be seen as an orthogonal structure, a complex
+structure, and a symplectic structure.
+
+\subsection{The dynamics of the symplectic manifold}
+
+The complex field $\mathbb{C}^{\tau\times\tau}$ encases the distributions of the
+player strategies; that is, the gradient of the distribution across the boundary
+of $\mcG$ determines the orientation of exterior. 
+We proceed to determine the skew-distribution of the closed manifold. We build from the geometric form, and
+extend the cross-product $[s_1 ]_x s_2$ , which is characterized by the
+transition $s_i \tilde k$ to $s_i+1 \tilde k + 1$.
+
+We examine the skew-Hermetian assignment, and the resulting tangent vector, or four-velocity. 
+The four coordinate functions $\theta^c (\tau), c = 0, 1, 2, 3$ are real
+functions of a real variable $\tau$. 
+We have that $\phi\cdot \mcS\subset \mcS$ is the subset of skew-Hermetian matrices known as signed
+permutation matrices. We extend our mean-field model to include this
+representation by setting $\begin{bmatrix}0 \\ k\end{bmatrix} = \begin{bmatrix}1
+\\ k\end{bmatrix}$ at the stop time $\tau$, where $\begin{bmatrix} \cdot \\
+\cdot\end{bmatrix}$ is a binomial operator.
+
+We claim that there exists an additional, induced metric, on the
+SIG. The the closed sphere of influence graph (CSIG) covers the intersections
+of the closed balls $\lbrace\overline{\mcS}\rbrace \subset \mcS\times \mcS$, where
+$$
+    \overline{S}_t= \lbrace S_t \in \mcS : \min\rho(S_t, S_{-t}) \le r_\tau \rbrace.
+$$
+Forming the CSIG,
+we endow the resulting strategy space with the Minkowski metric $\eta$, defined by the matrix
+$$
+	(\eta)_\alpha\beta = \begin{bmatrix}
+		-1 & 0 & 0 & 0 \\
+		0 & 1 & 0 & 0 \\
+		0 & 0 & 1 & 0 \\
+		0 & 0 & 0 & 1 \\
+	\end{bmatrix}.
+$$
+The Minkowski space $\mcM$ contains sub-manifolds endowed with a Riemannian metric yielding hyperbolic geometry. 
+We conjecture that indefiniteness of the Minkowski metric will allow for the
+construction of a utility function for the ensemble space. 
+Consider a hyperbolic absolute risk aversion (HARA) $\mu$, which must adhere to,
+for utility $\mu$,
+$$
+    \displaystyle\frac{\mu''(\langle s_i,s_{-i}\rangle)}{\mu'(\langle s_i,
+    s_{-i})}.
+$$
+
+We conjecture that the marginal value of this construction maps back to the
+convex kernel of the strategy space with a left limit. It is unclear if there is
+a well-defined correspondence between the Minkowski metric and the HARA utility
+function. The nature of the diffusion process is intended to allow for the
+combination of strategies due to pair interactions occurring once the SIG is
+completed, and will direct the evolution of the strategy space.
+
+\subsubsection{CSIG Visualization}
+
+The visualization of the CSIG may begin with simple arrangements.
+As CSIGs always have a clique factor, i.e. for CSIG $G = \lbrace G_1,\cdots
+G_n\rbrace$ there exists a spanning sub-graph whose connected components are always isomorphic to graphs in the set $\lbrace G_1,\cdots G_n\rbrace$. These connected components define the incident matrices of our dynamical network system. For example, suppose the node set $\mcX$ realizes $G$ in $\mcM$. Select a proper spanning forest $F$
+of the $\mcM$-CSIG such that the sum of the lengths of the edges of $F$ is minimum, then, each connected component of $F$ must be a star.
+
+
